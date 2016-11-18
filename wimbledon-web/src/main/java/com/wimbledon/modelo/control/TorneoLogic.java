@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -50,6 +51,8 @@ public class TorneoLogic implements ITorneoLogic {
     private IPartidoLogic partidoLogic;
     @Autowired
     private IJugadorLogic jugadorLogic;
+    @Autowired
+    private ISettLogic settLogic;
     
 
     @Transactional(readOnly = true)
@@ -485,6 +488,15 @@ public class TorneoLogic implements ITorneoLogic {
 				partido.setJugadorByJugabId(list.get(1));
 				partido.setHora(new Date());
 				partidoLogic.savePartido(partido);
+				
+				for (int i = 0; i < 3; i++) {
+					Sett sett = new Sett();
+					sett.setEstado("A");
+					sett.setPartido(partido);
+					sett.setTiempo(0D);
+					settLogic.saveSett(sett);
+				}
+				
 			}
 			
 		} catch (Exception e) {
