@@ -580,4 +580,11 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
     public void realizar_sorteo_torneo() throws Exception {
     	torneoLogic.realizar_sorteo_torneo();
     }
+    
+    @Override
+    public List<TorneoDTO> getResultadosTorneos(Integer tornId) throws Exception {
+    	return torneoLogic.getResultadosTorneos(tornId);
+    }
+    
+    
 }

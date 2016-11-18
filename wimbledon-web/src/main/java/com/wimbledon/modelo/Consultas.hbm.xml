@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 17, 2016 8:50:16 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+   
+   <sql-query name="consultar_resultados_torneos">
+   	<return-scalar column="tornId" type="java.lang.Integer"/>
+   	<return-scalar column="nombre" type="java.lang.String"/>
+   	<return-scalar column="premio" type="java.lang.String"/>
+   	<return-scalar column="jugaIdA" type="java.lang.Integer"/>
+   	<return-scalar column="nombreJugadorA" type="java.lang.String"/>
+   	<return-scalar column="jugaIdB" type="java.lang.Integer"/>
+   	<return-scalar column="nombreJugadorB" type="java.lang.String"/>
+   	<return-scalar column="gameJugador1" type="java.lang.Integer"/>
+   	<return-scalar column="gameJugador2" type="java.lang.Integer"/>
+   
+   	<![CDATA[
+   	SELECT  torn.torn_id tornId,
+			torn.nombre nombre,
+			torn.premio premio,
+			jugaa.juga_id jugaIdA,
+			jugaa.nombre nombreJugadorA,
+			jugab.juga_id jugaIdB,
+			jugab.nombre nombreJugadorB,
+			set.gamejugador1 gameJugador1,
+			set.gamejugador2 gameJugador2
+	FROM partido part 
+	INNER JOIN torneo torn ON part.torn_id = torn.torn_id
+	INNER JOIN jugador jugaa ON part.jugaa_id = jugaa.juga_id
+	INNER JOIN jugador jugab ON part.jugab_id = jugab.juga_id
+	LEFT JOIN sett set ON part.part_id = set.part_id
+	WHERE torn.torn_id = :pTornId
+   	]]>
+   </sql-query>
+
+
+</hibernate-mapping>

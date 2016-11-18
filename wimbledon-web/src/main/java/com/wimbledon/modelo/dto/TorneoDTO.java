@@ -23,6 +23,13 @@ public class TorneoDTO implements Serializable {
     private String nombre;
     private String premio;
     private Integer tornId;
+    private String nombreJugadorA;
+    private String nombreJugadorB;
+    private Integer jugaIdA;
+    private Integer jugaIdB;
+    private Integer gameJugador1;
+    private Integer gameJugador2;
+    
 
     public String getEstado() {
         return estado;
@@ -55,4 +62,38 @@ public class TorneoDTO implements Serializable {
     public void setTornId(Integer tornId) {
         this.tornId = tornId;
     }
+
+	public String getNombreJugadorA() {
+		return nombreJugadorA;
+	}
+
+	public void setNombreJugadorA(String nombreJugadorA) {
+		this.nombreJugadorA = nombreJugadorA;
+	}
+
+	public String getNombreJugadorB() {
+		return nombreJugadorB;
+	}
+
+	public void setNombreJugadorB(String nombreJugadorB) {
+		this.nombreJugadorB = nombreJugadorB;
+	}
+
+	public Integer getJugaIdA() {
+		return jugaIdA;
+	}
+
+	public void setJugaIdA(Integer jugaIdA) {
+		this.jugaIdA = jugaIdA;
+	}
+
+	public Integer getJugaIdB() {
+		return jugaIdB;
+	}
+
+	public void setJugaIdB(Integer jugaIdB) {
+		this.jugaIdB = jugaIdB;
+	}
+
+	
 }

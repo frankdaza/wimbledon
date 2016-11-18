@@ -3,12 +3,13 @@ package com.wimbledon.dataaccess.dao;
 import com.wimbledon.dataaccess.api.HibernateDaoImpl;
 
 import com.wimbledon.modelo.Torneo;
+import com.wimbledon.modelo.dto.TorneoDTO;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.criterion.Example;
-
+import org.hibernate.transform.Transformers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,4 +52,17 @@ public class TorneoDAO extends HibernateDaoImpl<Torneo, Integer>
     public static ITorneoDAO getFromApplicationContext(ApplicationContext ctx) {
         return (ITorneoDAO) ctx.getBean("TorneoDAO");
     }
+    
+    @Override
+    public List<TorneoDTO> consultarResultadosTorneos(Integer tornId) throws Exception {
+    	try {
+			Query query = getSession().getNamedQuery("consultar_resultados_torneos");
+			query.setParameter("pTornId", tornId);
+			query.setResultTransformer(Transformers.aliasToBean(TorneoDTO.class));			
+			return query.list();
+		} catch (Exception e) {
+			throw e;
+		}
+    }
+    
 }
