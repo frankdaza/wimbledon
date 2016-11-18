@@ -12,6 +12,8 @@
    	<return-scalar column="nombreJugadorA" type="java.lang.String"/>
    	<return-scalar column="jugaIdB" type="java.lang.Integer"/>
    	<return-scalar column="nombreJugadorB" type="java.lang.String"/>
+   	<return-scalar column="gameJugador1" type="java.lang.Integer"/>
+   	<return-scalar column="gameJugador2" type="java.lang.Integer"/>
    
    	<![CDATA[
    	SELECT  torn.torn_id tornId,
@@ -20,11 +22,14 @@
 			jugaa.juga_id jugaIdA,
 			jugaa.nombre nombreJugadorA,
 			jugab.juga_id jugaIdB,
-			jugab.nombre nombreJugadorB	
+			jugab.nombre nombreJugadorB,
+			set.gamejugador1 gameJugador1,
+			set.gamejugador2 gameJugador2
 	FROM partido part 
 	INNER JOIN torneo torn ON part.torn_id = torn.torn_id
 	INNER JOIN jugador jugaa ON part.jugaa_id = jugaa.juga_id
 	INNER JOIN jugador jugab ON part.jugab_id = jugab.juga_id
+	LEFT JOIN sett set ON part.part_id = set.part_id
 	WHERE torn.torn_id = :pTornId
    	]]>
    </sql-query>

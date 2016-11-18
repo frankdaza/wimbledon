@@ -56,7 +56,7 @@
 				<p:column headerText="Ver mas" >
 					<p:commandButton icon="ui-icon-search" onclick="PF('dlgResultadosTorneos').show()"
 						actionListener="#{resultadosTorneosView.action_consultar_partidos_torneo(resultado)}" 
-						update="@([id$=dlgResultadosTorneos]), @([id$=partidosTorneoDataTable])" />
+						update="@([id$=partidosTorneoDataTable])" />
 				</p:column>
 				
 			</p:dataTable>
@@ -72,17 +72,24 @@
 		<p:scrollPanel mode="native" style="width: 100%;">
 			<p:dataTable id="partidosTorneoDataTable" var="partido"
 				value="#{resultadosTorneosView.listResultadosTornedoDTOs}"
-				rowKey="#{resultado.tornId}"
 				rows="10"
 				filterDelay="1100"
 				emptyMessage="No se encontraron registros en el sistema">
 				
 				<p:column headerText="Nombre Jugador A" filterBy="#{resultado.nombreJugadorA}" filterMatchMode="contains">
-					<p:outputLabel value="#{resultado.nombreJugadorA}" />
+					<p:outputLabel value="#{partido.nombreJugadorA}" />
 				</p:column>
 				
 				<p:column headerText="Nombre Jugador B" filterBy="#{resultado.nombreJugadorB}" filterMatchMode="contains">
-					<p:outputLabel value="#{resultado.nombreJugadorB}" />
+					<p:outputLabel value="#{partido.nombreJugadorB}" />
+				</p:column>
+				
+				<p:column headerText="Games Jugador A" filterBy="#{resultado.gameJugador1}" filterMatchMode="contains">
+					<p:outputLabel value="#{resultado.gameJugador1}" />
+				</p:column>
+				
+				<p:column headerText="Games Jugador B" filterBy="#{resultado.gameJugador2}" filterMatchMode="contains">
+					<p:outputLabel value="#{resultado.gameJugador2}" />
 				</p:column>
 				
 			</p:dataTable>

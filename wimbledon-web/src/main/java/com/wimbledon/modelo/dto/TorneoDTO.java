@@ -27,6 +27,8 @@ public class TorneoDTO implements Serializable {
     private String nombreJugadorB;
     private Integer jugaIdA;
     private Integer jugaIdB;
+    private Integer gameJugador1;
+    private Integer gameJugador2;
     
 
     public String getEstado() {
