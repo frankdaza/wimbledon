@@ -14,7 +14,7 @@
         <property name="mantenimiento" type="java.lang.String">
             <column name="mantenimiento" length="1" not-null="true" />
         </property>
-        <property name="estado" type="java.lang.Integer">
+        <property name="estado" type="java.lang.String">
             <column name="estado" not-null="true" />
         </property>
         <set name="partidos" table="partido" inverse="true" lazy="true" fetch="select">

@@ -52,6 +52,7 @@ public class SorteoTorneoView implements Serializable {
     		}
     		
     		
+    		FacesUtils.addInfoMessage("El sorteo del partido ha sido realizado exitosamente");
 		} catch (Exception e) {
 			FacesUtils.addErrorMessage(e.getMessage());
 		}

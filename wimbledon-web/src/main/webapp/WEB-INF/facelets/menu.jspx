@@ -21,7 +21,9 @@
 						            	 	 <p:submenu label="Administrador">  
 							                    <p:menuitem value="Sorteo torneo" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/sorteoTorneo.xhtml" />
 							                    <p:menuitem value="Jugadores" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/jugadorListDataTable.xhtml" />
-							                    <p:menuitem value="Tipo partido" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/tipopartidoListDataTable.xhtml" />  
+							                    <p:menuitem value="Tipo partido" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/tipopartidoListDataTable.xhtml" />
+							                    <p:menuitem value="Partidos" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/partidoListDataTable.xhtml" />
+							                    <p:menuitem value="Canchas" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/canchaListDataTable.xhtml" />  
 							               	 </p:submenu>
 											 								            	
 										</p:column>

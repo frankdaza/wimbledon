@@ -39,19 +39,16 @@ import java.util.Set;
 public class TorneoLogic implements ITorneoLogic {
     private static final Logger log = LoggerFactory.getLogger(TorneoLogic.class);
 
-    /**
-     * DAO injected by Spring that manages Torneo entities
-     *
-     */
+  
     @Autowired
     private ITorneoDAO torneoDAO;
-
-    /**
-    * DAO injected by Spring that manages Partido entities
-    *
-    */
     @Autowired
     private IPartidoDAO partidoDAO;
+    @Autowired
+    private IPartidoLogic partidoLogic;
+    @Autowired
+    private IJugadorLogic jugadorLogic;
+    
 
     @Transactional(readOnly = true)
     public List<Torneo> getTorneo() throws Exception {
@@ -447,4 +444,55 @@ public class TorneoLogic implements ITorneoLogic {
 
         return list;
     }
+    
+    
+    
+    
+    /*
+     * Métodos propios
+     */
+    
+    public void realizar_sorteo_torneo() throws Exception {
+    	log.debug("Ingresó a realizar_sorteo_torneo");
+    	try {
+			Long numeroJugadores = jugadorLogic.findTotalNumberJugador();
+			
+			// El número de partidos es igual a la mitad del número de jugadores
+			
+			
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw e;
+		}
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
