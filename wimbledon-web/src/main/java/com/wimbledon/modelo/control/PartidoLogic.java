@@ -125,68 +125,48 @@ public class PartidoLogic implements IPartidoLogic {
         log.debug("saving Partido instance");
 
         try {
-            if (entity.getArbitro() == null) {
-                throw new ZMessManager().new ForeignException("arbitro");
-            }
-
-            if (entity.getCancha() == null) {
-                throw new ZMessManager().new ForeignException("cancha");
-            }
-
-            if (entity.getDirectortorneo() == null) {
-                throw new ZMessManager().new ForeignException("directortorneo");
-            }
-
-            if (entity.getJugadorByJugaaId() == null) {
-                throw new ZMessManager().new ForeignException(
-                    "jugadorByJugaaId");
-            }
-
-            if (entity.getJugadorByJugabId() == null) {
-                throw new ZMessManager().new ForeignException(
-                    "jugadorByJugabId");
-            }
-
-            if (entity.getTipopartido() == null) {
-                throw new ZMessManager().new ForeignException("tipopartido");
-            }
-
-            if (entity.getTorneo() == null) {
-                throw new ZMessManager().new ForeignException("torneo");
-            }
-
-            if (entity.getEquiaId() == null) {
-                throw new ZMessManager().new EmptyFieldException("equiaId");
-            }
-
-            if (entity.getEstado() == null) {
-                throw new ZMessManager().new EmptyFieldException("estado");
-            }
-
-            if ((entity.getEstado() != null) &&
-                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
-                throw new ZMessManager().new NotValidFormatException("estado");
-            }
-
-            if (entity.getHora() == null) {
-                throw new ZMessManager().new EmptyFieldException("hora");
-            }          
-
-            if (entity.getArbitro().getArbiId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "arbiId_Arbitro");
-            }
-
-            if (entity.getCancha().getCancId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "cancId_Cancha");
-            }
-
-            if (entity.getDirectortorneo().getDitoId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "ditoId_Directortorneo");
-            }
-         
+//            if (entity.getArbitro() == null) {
+//                throw new ZMessManager().new ForeignException("arbitro");
+//            }
+//
+//            if (entity.getCancha() == null) {
+//                throw new ZMessManager().new ForeignException("cancha");
+//            }
+//
+//            if (entity.getDirectortorneo() == null) {
+//                throw new ZMessManager().new ForeignException("directortorneo");
+//            }
+//
+//            if (entity.getJugadorByJugaaId() == null) {
+//                throw new ZMessManager().new ForeignException(
+//                    "jugadorByJugaaId");
+//            }
+//
+//            if (entity.getJugadorByJugabId() == null) {
+//                throw new ZMessManager().new ForeignException(
+//                    "jugadorByJugabId");
+//            }
+//
+//            if (entity.getTipopartido() == null) {
+//                throw new ZMessManager().new ForeignException("tipopartido");
+//            }
+//
+//            if (entity.getTorneo() == null) {
+//                throw new ZMessManager().new ForeignException("torneo");
+//            }
+//            
+//            if (entity.getEstado() == null) {
+//                throw new ZMessManager().new EmptyFieldException("estado");
+//            }
+//
+//            if ((entity.getEstado() != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("estado");
+//            }
+//
+//            if (entity.getHora() == null) {
+//                throw new ZMessManager().new EmptyFieldException("hora");
+//            }                     
 
             partidoDAO.save(entity);
 
@@ -234,72 +214,54 @@ public class PartidoLogic implements IPartidoLogic {
         log.debug("updating Partido instance");
 
         try {
-            if (entity == null) {
-                throw new ZMessManager().new NullEntityExcepcion("Partido");
-            }
+//            if (entity == null) {
+//                throw new ZMessManager().new NullEntityExcepcion("Partido");
+//            }
+//
+//            if (entity.getArbitro() == null) {
+//                throw new ZMessManager().new ForeignException("arbitro");
+//            }
+//
+//            if (entity.getCancha() == null) {
+//                throw new ZMessManager().new ForeignException("cancha");
+//            }
+//
+//            if (entity.getDirectortorneo() == null) {
+//                throw new ZMessManager().new ForeignException("directortorneo");
+//            }
+//
+//            if (entity.getJugadorByJugaaId() == null) {
+//                throw new ZMessManager().new ForeignException(
+//                    "jugadorByJugaaId");
+//            }
+//
+//            if (entity.getJugadorByJugabId() == null) {
+//                throw new ZMessManager().new ForeignException(
+//                    "jugadorByJugabId");
+//            }
+//
+//            if (entity.getTipopartido() == null) {
+//                throw new ZMessManager().new ForeignException("tipopartido");
+//            }
+//
+//            if (entity.getTorneo() == null) {
+//                throw new ZMessManager().new ForeignException("torneo");
+//            }
+//
+//            if (entity.getEstado() == null) {
+//                throw new ZMessManager().new EmptyFieldException("estado");
+//            }
+//
+//            if ((entity.getEstado() != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("estado");
+//            }
+//
+//            if (entity.getHora() == null) {
+//                throw new ZMessManager().new EmptyFieldException("hora");
+//            }            
 
-            if (entity.getArbitro() == null) {
-                throw new ZMessManager().new ForeignException("arbitro");
-            }
-
-            if (entity.getCancha() == null) {
-                throw new ZMessManager().new ForeignException("cancha");
-            }
-
-            if (entity.getDirectortorneo() == null) {
-                throw new ZMessManager().new ForeignException("directortorneo");
-            }
-
-            if (entity.getJugadorByJugaaId() == null) {
-                throw new ZMessManager().new ForeignException(
-                    "jugadorByJugaaId");
-            }
-
-            if (entity.getJugadorByJugabId() == null) {
-                throw new ZMessManager().new ForeignException(
-                    "jugadorByJugabId");
-            }
-
-            if (entity.getTipopartido() == null) {
-                throw new ZMessManager().new ForeignException("tipopartido");
-            }
-
-            if (entity.getTorneo() == null) {
-                throw new ZMessManager().new ForeignException("torneo");
-            }
-
-            if (entity.getEquiaId() == null) {
-                throw new ZMessManager().new EmptyFieldException("equiaId");
-            }
-
-            if (entity.getEstado() == null) {
-                throw new ZMessManager().new EmptyFieldException("estado");
-            }
-
-            if ((entity.getEstado() != null) &&
-                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
-                throw new ZMessManager().new NotValidFormatException("estado");
-            }
-
-            if (entity.getHora() == null) {
-                throw new ZMessManager().new EmptyFieldException("hora");
-            }            
-
-            if (entity.getArbitro().getArbiId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "arbiId_Arbitro");
-            }
-
-            if (entity.getCancha().getCancId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "cancId_Cancha");
-            }
-
-            if (entity.getDirectortorneo().getDitoId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "ditoId_Directortorneo");
-            }
-          
+           
             partidoDAO.update(entity);
 
             log.debug("update Partido successful");
@@ -320,26 +282,21 @@ public class PartidoLogic implements IPartidoLogic {
             for (Partido partidoTmp : partido) {
                 PartidoDTO partidoDTO2 = new PartidoDTO();
 
-                partidoDTO2.setPartId(partidoTmp.getPartId());
-                partidoDTO2.setEquiaId((partidoTmp.getEquiaId() != null)
-                    ? partidoTmp.getEquiaId() : null);
+                partidoDTO2.setPartId(partidoTmp.getPartId());                
                 partidoDTO2.setEstado((partidoTmp.getEstado() != null)
                     ? partidoTmp.getEstado() : null);
                 partidoDTO2.setHora(partidoTmp.getHora());
                 partidoDTO2.setTiempototal((partidoTmp.getTiempototal() != null)
                     ? partidoTmp.getTiempototal() : null);
-                partidoDTO2.setArbiId_Arbitro((partidoTmp.getArbitro()
-                                                         .getArbiId() != null)
+                partidoDTO2.setArbiId_Arbitro((partidoTmp.getArbitro() != null)
                     ? partidoTmp.getArbitro().getArbiId() : null);
-                partidoDTO2.setCancId_Cancha((partidoTmp.getCancha().getCancId() != null)
+                partidoDTO2.setCancId_Cancha((partidoTmp.getCancha() != null)
                     ? partidoTmp.getCancha().getCancId() : null);
-                partidoDTO2.setDitoId_Directortorneo((partidoTmp.getDirectortorneo()
-                                                                .getDitoId() != null)
+                partidoDTO2.setDitoId_Directortorneo((partidoTmp.getDirectortorneo() != null)
                     ? partidoTmp.getDirectortorneo().getDitoId() : null);                
-                partidoDTO2.setTipaId_Tipopartido((partidoTmp.getTipopartido()
-                                                             .getTipaId() != null)
+                partidoDTO2.setTipaId_Tipopartido((partidoTmp.getTipopartido() != null)
                     ? partidoTmp.getTipopartido().getTipaId() : null);
-                partidoDTO2.setTornId_Torneo((partidoTmp.getTorneo().getTornId() != null)
+                partidoDTO2.setTornId_Torneo((partidoTmp.getTorneo() != null)
                     ? partidoTmp.getTorneo().getTornId() : null);
                 partidoDTO.add(partidoDTO2);
             }

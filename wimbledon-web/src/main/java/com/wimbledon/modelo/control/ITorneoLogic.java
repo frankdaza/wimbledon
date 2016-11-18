@@ -53,4 +53,5 @@ public interface ITorneoLogic {
     public Long findTotalNumberTorneo() throws Exception;
 
     public List<TorneoDTO> getDataTorneo() throws Exception;
+    public void realizar_sorteo_torneo() throws Exception;
 }

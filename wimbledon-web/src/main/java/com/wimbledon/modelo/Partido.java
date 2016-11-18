@@ -23,14 +23,13 @@ public class Partido  implements java.io.Serializable {
      private Date hora;
      private Integer tiempototal;
      private String estado;
-     private Integer equiaId;
      private Set<Sett> setts = new HashSet<Sett>(0);
 
     public Partido() {
     }
 
 	
-    public Partido(Integer partId, Arbitro arbitro, Cancha cancha, Directortorneo directortorneo, Jugador jugadorByJugaaId, Jugador jugadorByJugabId, Tipopartido tipopartido, Torneo torneo, Date hora, String estado, Integer equiaId) {
+    public Partido(Integer partId, Arbitro arbitro, Cancha cancha, Directortorneo directortorneo, Jugador jugadorByJugaaId, Jugador jugadorByJugabId, Tipopartido tipopartido, Torneo torneo, Date hora, String estado) {
         this.partId = partId;
         this.arbitro = arbitro;
         this.cancha = cancha;
@@ -41,9 +40,8 @@ public class Partido  implements java.io.Serializable {
         this.torneo = torneo;
         this.hora = hora;
         this.estado = estado;
-        this.equiaId = equiaId;
     }
-    public Partido(Integer partId, Arbitro arbitro, Cancha cancha, Directortorneo directortorneo, Jugador jugadorByJugaaId, Jugador jugadorByJugabId, Tipopartido tipopartido, Torneo torneo, Date hora, Integer tiempototal, String estado, Integer equiaId, Set<Sett> setts) {
+    public Partido(Integer partId, Arbitro arbitro, Cancha cancha, Directortorneo directortorneo, Jugador jugadorByJugaaId, Jugador jugadorByJugabId, Tipopartido tipopartido, Torneo torneo, Date hora, Integer tiempototal, String estado, Set<Sett> setts) {
        this.partId = partId;
        this.arbitro = arbitro;
        this.cancha = cancha;
@@ -55,7 +53,6 @@ public class Partido  implements java.io.Serializable {
        this.hora = hora;
        this.tiempototal = tiempototal;
        this.estado = estado;
-       this.equiaId = equiaId;
        this.setts = setts;
     }
    
@@ -136,13 +133,7 @@ public class Partido  implements java.io.Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public Integer getEquiaId() {
-        return this.equiaId;
-    }
     
-    public void setEquiaId(Integer equiaId) {
-        this.equiaId = equiaId;
-    }
     public Set<Sett> getSetts() {
         return this.setts;
     }

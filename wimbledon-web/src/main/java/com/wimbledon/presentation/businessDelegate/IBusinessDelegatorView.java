@@ -258,4 +258,5 @@ public interface IBusinessDelegatorView {
     public Long findTotalNumberUsuarios() throws Exception;
 
     public List<UsuariosDTO> getDataUsuarios() throws Exception;
+    public void realizar_sorteo_torneo() throws Exception;
 }

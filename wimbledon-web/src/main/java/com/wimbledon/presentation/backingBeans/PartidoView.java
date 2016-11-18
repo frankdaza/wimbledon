@@ -49,7 +49,6 @@ import javax.faces.event.ActionEvent;
 public class PartidoView implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(PartidoView.class);
-    private InputText txtEquiaId;
     private InputText txtEstado;
     private InputText txtTiempototal;
     private InputText txtArbiId_Arbitro;
@@ -78,12 +77,6 @@ public class PartidoView implements Serializable {
     public void rowEventListener(RowEditEvent e) {
         try {
             PartidoDTO partidoDTO = (PartidoDTO) e.getObject();
-
-            if (txtEquiaId == null) {
-                txtEquiaId = new InputText();
-            }
-
-            txtEquiaId.setValue(partidoDTO.getEquiaId());
 
             if (txtEstado == null) {
                 txtEstado = new InputText();
@@ -162,12 +155,7 @@ public class PartidoView implements Serializable {
     public String action_clear() {
         entity = null;
         selectedPartido = null;
-
-        if (txtEquiaId != null) {
-            txtEquiaId.setValue(null);
-            txtEquiaId.setDisabled(true);
-        }
-
+     
         if (txtEstado != null) {
             txtEstado.setValue(null);
             txtEstado.setDisabled(true);
@@ -247,7 +235,6 @@ public class PartidoView implements Serializable {
         }
 
         if (entity == null) {
-            txtEquiaId.setDisabled(false);
             txtEstado.setDisabled(false);
             txtTiempototal.setDisabled(false);
             txtArbiId_Arbitro.setDisabled(false);
@@ -259,9 +246,7 @@ public class PartidoView implements Serializable {
             txtHora.setDisabled(false);
             txtPartId.setDisabled(false);
             btnSave.setDisabled(false);
-        } else {
-            txtEquiaId.setValue(entity.getEquiaId());
-            txtEquiaId.setDisabled(false);
+        } else {            
             txtEstado.setValue(entity.getEstado());
             txtEstado.setDisabled(false);
             txtHora.setValue(entity.getHora());
@@ -292,9 +277,7 @@ public class PartidoView implements Serializable {
 
     public String action_edit(ActionEvent evt) {
         selectedPartido = (PartidoDTO) (evt.getComponent().getAttributes()
-                                           .get("selectedPartido"));
-        txtEquiaId.setValue(selectedPartido.getEquiaId());
-        txtEquiaId.setDisabled(false);
+                                           .get("selectedPartido"));        
         txtEstado.setValue(selectedPartido.getEstado());
         txtEstado.setDisabled(false);
         txtHora.setValue(selectedPartido.getHora());
@@ -342,7 +325,6 @@ public class PartidoView implements Serializable {
 
             Integer partId = FacesUtils.checkInteger(txtPartId);
 
-            entity.setEquiaId(FacesUtils.checkInteger(txtEquiaId));
             entity.setEstado(FacesUtils.checkString(txtEstado));
             entity.setHora(FacesUtils.checkDate(txtHora));
             entity.setPartId(partId);
@@ -382,7 +364,6 @@ public class PartidoView implements Serializable {
                 entity = businessDelegatorView.getPartido(partId);
             }
 
-            entity.setEquiaId(FacesUtils.checkInteger(txtEquiaId));
             entity.setEstado(FacesUtils.checkString(txtEstado));
             entity.setHora(FacesUtils.checkDate(txtHora));
             entity.setTiempototal(FacesUtils.checkInteger(txtTiempototal));
@@ -484,7 +465,6 @@ public class PartidoView implements Serializable {
         Integer tipaId_Tipopartido, Integer tornId_Torneo)
         throws Exception {
         try {
-            entity.setEquiaId(FacesUtils.checkInteger(equiaId));
             entity.setEstado(FacesUtils.checkString(estado));
             entity.setHora(FacesUtils.checkDate(hora));
             entity.setTiempototal(FacesUtils.checkInteger(tiempototal));
@@ -497,15 +477,7 @@ public class PartidoView implements Serializable {
         }
 
         return "";
-    }
-
-    public InputText getTxtEquiaId() {
-        return txtEquiaId;
-    }
-
-    public void setTxtEquiaId(InputText txtEquiaId) {
-        this.txtEquiaId = txtEquiaId;
-    }
+    }   
 
     public InputText getTxtEstado() {
         return txtEstado;
