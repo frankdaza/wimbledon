@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>		
+	
+	<h:body>
+		<ui:composition template="/WEB-INF/facelets/template2.xhtml">	
+		<ui:define name="body">	
+		<f:view>
+			<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>               
+			<p:dialog modal="true" widgetVar="statusDialog" header="Loading"  draggable="false" closable="false">  
+   				<p:graphicImage value="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/images/ajaxloadingbar.gif" />   
+			</p:dialog>
+			
+			<!-- Expired session -->
+					<p:idleMonitor onactive="PF('sessionTimeOutDialog').show();" timeout="#{session.maxInactiveInterval * 1000}" />
+					<p:dialog modal="true" widgetVar="sessionTimeOutDialog" header="Expired session"  draggable="false" closable="false">  
+	   					<h:outputText value="The session is finished" />
+	                 	<input id="confirmBackToLogin" 
+	                 		type="button" 
+	                 		value="Sign in"
+	                    	onclick="window.location='#{facesContext.externalContext.requestContextPath}/index.jsp';" />   
+					</p:dialog>
+			
+		
+<div align="center">		
+<h:form id="formResultadosTorneos">
+
+	<p:growl id="growl" />
+				
+	<p:panel id="pnlResultadosTorneos" header="Resultados torneos" style="width: 90%;">
+		<h:panelGrid columns="2">
+			
+			<p:scrollPanel mode="native" style="width: 100%;">
+			<p:dataTable id="resultadosTorneosDataTable" var="resultado" style="text-align: center;"
+				value="#{resultadosTorneosView.listTornedoDTOs}"
+				selection="#{resultadosTorneosView.selectedTorneoDTO}"
+				rowKey="#{resultado.tornId}"
+				rows="10"
+				filterDelay="1100"
+				emptyMessage="No se encontraron registros en el sistema">
+				
+				<p:column headerText="Nombre torneo" filterBy="#{resultado.nombre}" filterMatchMode="contains">
+					<p:outputLabel value="#{resultado.nombre}" />
+				</p:column>
+				
+				<p:column headerText="Premio" filterBy="#{resultado.premio}" filterMatchMode="startsWith">
+					<p:outputLabel value="#{resultado.premio}" />
+				</p:column>
+											
+				<p:column headerText="Ver mas" >
+					<p:commandButton icon="ui-icon-search" onclick="PF('dlgResultadosTorneos').show()"
+						actionListener="#{resultadosTorneosView.action_consultar_partidos_torneo(resultado)}" 
+						update="@([id$=dlgResultadosTorneos]), @([id$=partidosTorneoDataTable])" />
+				</p:column>
+				
+			</p:dataTable>
+			</p:scrollPanel>
+		
+		</h:panelGrid>
+	</p:panel>
+	
+	<!-- DIÁLOGO RESULTADOS PARTIDOS -->
+	<p:dialog id="dlgResultadosTorneos" widgetVar="dlgResultadosTorneos" width="900"
+		draggable="true" modal="true" closable="true" header="Resultados partidos del torneo">
+		
+		<p:scrollPanel mode="native" style="width: 100%;">
+			<p:dataTable id="partidosTorneoDataTable" var="partido"
+				value="#{resultadosTorneosView.listResultadosTornedoDTOs}"
+				rowKey="#{resultado.tornId}"
+				rows="10"
+				filterDelay="1100"
+				emptyMessage="No se encontraron registros en el sistema">
+				
+				<p:column headerText="Nombre Jugador A" filterBy="#{resultado.nombreJugadorA}" filterMatchMode="contains">
+					<p:outputLabel value="#{resultado.nombreJugadorA}" />
+				</p:column>
+				
+				<p:column headerText="Nombre Jugador B" filterBy="#{resultado.nombreJugadorB}" filterMatchMode="contains">
+					<p:outputLabel value="#{resultado.nombreJugadorB}" />
+				</p:column>
+				
+			</p:dataTable>
+		</p:scrollPanel>
+		
+	</p:dialog>
+	<!-- FIN DIÁLOGO RESULTADOS PARTIDOS -->
+				
+</h:form>
+</div>
+
+
+		</f:view>
+			</ui:define>		
+		</ui:composition>	
+	</h:body>	
+</html>	
