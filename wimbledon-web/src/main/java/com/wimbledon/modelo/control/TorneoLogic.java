@@ -222,7 +222,7 @@ public class TorneoLogic implements ITorneoLogic {
                 torneoDTO2.setNombre((torneoTmp.getNombre() != null)
                     ? torneoTmp.getNombre() : null);
                 torneoDTO2.setPremio((torneoTmp.getPremio() != null)
-                    ? torneoTmp.getPremio() : null);
+                    ? torneoTmp.getPremio() : null);                
                 torneoDTO.add(torneoDTO2);
             }
 
@@ -493,14 +493,23 @@ public class TorneoLogic implements ITorneoLogic {
 		}
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /**
+     * Retorna los resultados de los torneos.
+     * @return List<TorneoDTO>
+     * @throws Exception
+     * @author Frank Daza
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<TorneoDTO> getResultadosTorneos(Integer tornId) throws Exception {
+    	log.debug("Ingresó a getResultadosTorneos");
+    	try {
+			return torneoDAO.consultarResultadosTorneos(tornId);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw e;
+		}
+    }
+       
     
 }
