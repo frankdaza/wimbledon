@@ -468,7 +468,7 @@ public class TorneoLogic implements ITorneoLogic {
     	log.debug("Ingresó a realizar_sorteo_torneo");
     	try {
 			List<Jugador> listJugador = jugadorLogic.getJugador();
-//			Collections.shuffle(listJugador);
+			Collections.shuffle(listJugador);
 			
 			List<List<Jugador>> listTuplas = new ArrayList<List<Jugador>>();
 			
@@ -487,6 +487,7 @@ public class TorneoLogic implements ITorneoLogic {
 				partido.setJugadorByJugaaId(list.get(0));
 				partido.setJugadorByJugabId(list.get(1));
 				partido.setHora(new Date());
+				partido.setTorneo(getTorneo(1));
 				partidoLogic.savePartido(partido);
 				
 				for (int i = 0; i < 3; i++) {

@@ -95,5 +95,21 @@ public class TorneoDTO implements Serializable {
 		this.jugaIdB = jugaIdB;
 	}
 
+	public Integer getGameJugador1() {
+		return gameJugador1;
+	}
+
+	public void setGameJugador1(Integer gameJugador1) {
+		this.gameJugador1 = gameJugador1;
+	}
+
+	public Integer getGameJugador2() {
+		return gameJugador2;
+	}
+
+	public void setGameJugador2(Integer gameJugador2) {
+		this.gameJugador2 = gameJugador2;
+	}
+
 	
 }

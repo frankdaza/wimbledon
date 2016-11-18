@@ -33,6 +33,11 @@
 	WHERE torn.torn_id = :pTornId
    	]]>
    </sql-query>
+   
+   <sql-query name="borrar_sets">
+   	
+   </sql-query>
+   
 
 
 </hibernate-mapping>

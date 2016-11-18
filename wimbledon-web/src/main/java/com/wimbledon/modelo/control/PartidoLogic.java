@@ -197,10 +197,12 @@ public class PartidoLogic implements IPartidoLogic {
 
         try {
             setts = settDAO.findByProperty("partido.partId", entity.getPartId());
+            
+            settDAO.deleteAll();
 
-            if (Utilities.validationsList(setts) == true) {
+            if (Utilities.validationsList(setts) == true) {            	
                 throw new ZMessManager().new DeletingException("setts");
-            }
+            }            
 
             partidoDAO.delete(entity);
 
