@@ -32,38 +32,14 @@
 							        </p:submenu>  
 															
 															
-							  
-							        <p:submenu label="Juez de silla" icon="ui-icon-document">
-							           <p:column>  
-							                								            	 <p:submenu label="Arbitro">  
-								                    <p:menuitem value="Arbitro" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/arbitroListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Cancha">  
-								                    <p:menuitem value="Cancha" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/canchaListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Directortorneo">  
-								                    <p:menuitem value="Directortorneo" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/directortorneoListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Jugador">  
-								                    <p:menuitem value="Jugador" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/jugadorListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Partido">  
-								                    <p:menuitem value="Partido" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/partidoListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Sett">  
-								                    <p:menuitem value="Sett" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/settListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Tipopartido">  
-								                    <p:menuitem value="Tipopartido" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/tipopartidoListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Torneo">  
-								                    <p:menuitem value="Torneo" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/torneoListDataTable.xhtml" />  
-								               	 </p:submenu>
-											 								            	 <p:submenu label="Usuarios">  
-								                    <p:menuitem value="Usuarios" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/usuariosListDataTable.xhtml" />  
-								               	 </p:submenu>
-										</p:column>
-							        </p:submenu>  
+							  			<p:submenu label="Juez de silla" icon="ui-icon-document">
+											<p:column>
+												<p:submenu label="Arbitro">
+													<p:menuitem value="Arbitro"
+														url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/arbitroListDataTable.xhtml" />
+												</p:submenu>
+											</p:column>
+										</p:submenu>
 							  
 							        							  							  
 						        	<p:menuitem value="Quit" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/index.jsp" icon="ui-icon-close" />  
