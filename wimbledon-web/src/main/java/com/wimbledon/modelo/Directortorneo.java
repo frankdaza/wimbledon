@@ -14,7 +14,6 @@ public class Directortorneo  implements java.io.Serializable {
      private Integer ditoId;
      private String nombre;
      private String estado;
-     private Integer docuId;
      private String numeroIdentificacion;
      private Set<Partido> partidos = new HashSet<Partido>(0);
      private Set<Usuarios> usuarioses = new HashSet<Usuarios>(0);
@@ -23,18 +22,16 @@ public class Directortorneo  implements java.io.Serializable {
     }
 
 	
-    public Directortorneo(Integer ditoId, String nombre, String estado, Integer docuId, String numeroIdentificacion) {
+    public Directortorneo(Integer ditoId, String nombre, String estado, String numeroIdentificacion) {
         this.ditoId = ditoId;
         this.nombre = nombre;
         this.estado = estado;
-        this.docuId = docuId;
         this.numeroIdentificacion = numeroIdentificacion;
     }
-    public Directortorneo(Integer ditoId, String nombre, String estado, Integer docuId, String numeroIdentificacion, Set<Partido> partidos, Set<Usuarios> usuarioses) {
+    public Directortorneo(Integer ditoId, String nombre, String estado, String numeroIdentificacion, Set<Partido> partidos, Set<Usuarios> usuarioses) {
        this.ditoId = ditoId;
        this.nombre = nombre;
        this.estado = estado;
-       this.docuId = docuId;
        this.numeroIdentificacion = numeroIdentificacion;
        this.partidos = partidos;
        this.usuarioses = usuarioses;
@@ -61,13 +58,7 @@ public class Directortorneo  implements java.io.Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public Integer getDocuId() {
-        return this.docuId;
-    }
-    
-    public void setDocuId(Integer docuId) {
-        this.docuId = docuId;
-    }
+   
     public String getNumeroIdentificacion() {
         return this.numeroIdentificacion;
     }

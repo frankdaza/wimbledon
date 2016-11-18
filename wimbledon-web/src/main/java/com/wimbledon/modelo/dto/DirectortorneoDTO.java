@@ -20,7 +20,6 @@ public class DirectortorneoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(DirectortorneoDTO.class);
     private Integer ditoId;
-    private Integer docuId;
     private String estado;
     private String nombre;
     private String numeroIdentificacion;
@@ -33,13 +32,6 @@ public class DirectortorneoDTO implements Serializable {
         this.ditoId = ditoId;
     }
 
-    public Integer getDocuId() {
-        return docuId;
-    }
-
-    public void setDocuId(Integer docuId) {
-        this.docuId = docuId;
-    }
 
     public String getEstado() {
         return estado;

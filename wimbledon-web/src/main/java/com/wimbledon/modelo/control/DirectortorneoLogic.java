@@ -84,13 +84,9 @@ public class DirectortorneoLogic implements IDirectortorneoLogic {
         log.debug("saving Directortorneo instance");
 
         try {
-            if (entity.getDitoId() == null) {
-                throw new ZMessManager().new EmptyFieldException("ditoId");
-            }
-
-            if (entity.getDocuId() == null) {
-                throw new ZMessManager().new EmptyFieldException("docuId");
-            }
+//            if (entity.getDitoId() == null) {
+//                throw new ZMessManager().new EmptyFieldException("ditoId");
+//            }
 
             if (entity.getEstado() == null) {
                 throw new ZMessManager().new EmptyFieldException("estado");
@@ -123,9 +119,9 @@ public class DirectortorneoLogic implements IDirectortorneoLogic {
                     "numeroIdentificacion");
             }
 
-            if (getDirectortorneo(entity.getDitoId()) != null) {
-                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
-            }
+//            if (getDirectortorneo(entity.getDitoId()) != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
 
             directortorneoDAO.save(entity);
 
@@ -189,14 +185,10 @@ public class DirectortorneoLogic implements IDirectortorneoLogic {
                     "Directortorneo");
             }
 
-            if (entity.getDitoId() == null) {
-                throw new ZMessManager().new EmptyFieldException("ditoId");
-            }
-
-            if (entity.getDocuId() == null) {
-                throw new ZMessManager().new EmptyFieldException("docuId");
-            }
-
+//            if (entity.getDitoId() == null) {
+//                throw new ZMessManager().new EmptyFieldException("ditoId");
+//            }
+            
             if (entity.getEstado() == null) {
                 throw new ZMessManager().new EmptyFieldException("estado");
             }
@@ -249,9 +241,7 @@ public class DirectortorneoLogic implements IDirectortorneoLogic {
             for (Directortorneo directortorneoTmp : directortorneo) {
                 DirectortorneoDTO directortorneoDTO2 = new DirectortorneoDTO();
 
-                directortorneoDTO2.setDitoId(directortorneoTmp.getDitoId());
-                directortorneoDTO2.setDocuId((directortorneoTmp.getDocuId() != null)
-                    ? directortorneoTmp.getDocuId() : null);
+                directortorneoDTO2.setDitoId(directortorneoTmp.getDitoId());                
                 directortorneoDTO2.setEstado((directortorneoTmp.getEstado() != null)
                     ? directortorneoTmp.getEstado() : null);
                 directortorneoDTO2.setNombre((directortorneoTmp.getNombre() != null)
