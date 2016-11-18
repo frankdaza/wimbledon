@@ -67,9 +67,18 @@ public class PartidoView implements Serializable {
 	private Partido entity;
 	private boolean showDialog;
 	private boolean showDialogArbitro;
+	private boolean showDialogSet;
 	
 	private SelectOneMenu somArbitros;
 	private List<SelectItem> losArbitros;
+	
+	private InputText jugadorASet1;
+	private InputText jugadorASet2;
+	private InputText jugadorASet3;
+	
+	private InputText jugadorBSet1;
+	private InputText jugadorBSet2;
+	private InputText jugadorBSet3;
 
 	@ManagedProperty(value = "#{BusinessDelegatorView}")
 	private IBusinessDelegatorView businessDelegatorView;
@@ -309,6 +318,13 @@ public class PartidoView implements Serializable {
 
 		return "";
 	}
+	
+	public String action_asignarPuntos(ActionEvent evt) {
+		selectedPartido = (PartidoDTO) (evt.getComponent().getAttributes().get("selectedPartido"));
+		setShowDialogSet(true);
+
+		return "";
+	}
 
 	public String action_save() {
 		try {
@@ -420,6 +436,72 @@ public class PartidoView implements Serializable {
 		return "";
 	}
 	
+	public String action_guardarSets() throws Exception {
+		
+		try {
+			
+			if (jugadorASet1.getValue() != null && jugadorASet1.getValue().toString().trim().equals("") == true) {
+				throw new Exception("Ingrese el valor para el set 1 para el jugador A");
+			}
+			
+			if (jugadorASet2.getValue() != null && jugadorASet2.getValue().toString().trim().equals("") == true) {
+				throw new Exception("Ingrese el valor para el set 2 para el jugador A");
+			}
+			
+			if (jugadorASet3.getValue() != null && jugadorASet3.getValue().toString().trim().equals("") == true) {
+				throw new Exception("Ingrese el valor para el set 3 para el jugador A");
+			}
+			
+			
+			if (jugadorBSet1.getValue() != null && jugadorBSet1.getValue().toString().trim().equals("") == true) {
+				throw new Exception("Ingrese el valor para el set 1 para el jugador B");
+			}
+			
+			if (jugadorBSet2.getValue() != null && jugadorBSet2.getValue().toString().trim().equals("") == true) {
+				throw new Exception("Ingrese el valor para el set 2 para el jugador B");
+			}
+			
+			if (jugadorBSet3.getValue() != null && jugadorBSet3.getValue().toString().trim().equals("") == true) {
+				throw new Exception("Ingrese el valor para el set 3 para el jugador B");
+			}
+			
+			List<Sett> setts = selectedPartido.getSetts();
+			
+			int i = 1;
+			
+			for (Sett sett : setts) {
+				if (i == 1) {
+					sett.setGamejugador1(new Integer(jugadorASet1.getValue().toString().trim()));
+					sett.setGamejugador2(new Integer(jugadorBSet1.getValue().toString().trim()));
+					businessDelegatorView.updateSett(sett);
+				}
+				
+				if (i == 2) {
+					sett.setGamejugador1(new Integer(jugadorASet2.getValue().toString().trim()));
+					sett.setGamejugador2(new Integer(jugadorBSet2.getValue().toString().trim()));
+					businessDelegatorView.updateSett(sett);
+				}
+				
+				if (i == 3) {
+					sett.setGamejugador1(new Integer(jugadorASet3.getValue().toString().trim()));
+					sett.setGamejugador2(new Integer(jugadorBSet3.getValue().toString().trim()));
+					businessDelegatorView.updateSett(sett);
+				}
+				
+				i++;
+			}
+			
+			data = businessDelegatorView.getDataPartido();
+			setShowDialogSet(false);
+			FacesUtils.addInfoMessage("El partido ha sido actualizado");
+			
+			
+		} catch (Exception e) {
+			FacesUtils.addErrorMessage(e.getMessage());
+		}
+		
+		return "";
+	}
 
 	public String action_delete_datatable(ActionEvent evt) {
 		try {
@@ -470,6 +552,13 @@ public class PartidoView implements Serializable {
 
 		return "";
 	}
+	
+	public String action_closeDialogSet() {
+		setShowDialogSet(false);
+
+		return "";
+	}
+	
 
 	public String actionDeleteDataTableEditable(ActionEvent evt) {
 		try {
@@ -697,5 +786,61 @@ public class PartidoView implements Serializable {
 
 	public void setLosArbitros(List<SelectItem> losArbitros) {
 		this.losArbitros = losArbitros;
+	}
+
+	public boolean isShowDialogSet() {
+		return showDialogSet;
+	}
+
+	public void setShowDialogSet(boolean showDialogSet) {
+		this.showDialogSet = showDialogSet;
+	}
+
+	public InputText getJugadorASet1() {
+		return jugadorASet1;
+	}
+
+	public void setJugadorASet1(InputText jugadorASet1) {
+		this.jugadorASet1 = jugadorASet1;
+	}
+
+	public InputText getJugadorASet2() {
+		return jugadorASet2;
+	}
+
+	public void setJugadorASet2(InputText jugadorASet2) {
+		this.jugadorASet2 = jugadorASet2;
+	}
+
+	public InputText getJugadorASet3() {
+		return jugadorASet3;
+	}
+
+	public void setJugadorASet3(InputText jugadorASet3) {
+		this.jugadorASet3 = jugadorASet3;
+	}
+
+	public InputText getJugadorBSet1() {
+		return jugadorBSet1;
+	}
+
+	public void setJugadorBSet1(InputText jugadorBSet1) {
+		this.jugadorBSet1 = jugadorBSet1;
+	}
+
+	public InputText getJugadorBSet2() {
+		return jugadorBSet2;
+	}
+
+	public void setJugadorBSet2(InputText jugadorBSet2) {
+		this.jugadorBSet2 = jugadorBSet2;
+	}
+
+	public InputText getJugadorBSet3() {
+		return jugadorBSet3;
+	}
+
+	public void setJugadorBSet3(InputText jugadorBSet3) {
+		this.jugadorBSet3 = jugadorBSet3;
 	}
 }

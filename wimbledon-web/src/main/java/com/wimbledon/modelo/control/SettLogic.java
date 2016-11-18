@@ -76,43 +76,43 @@ public class SettLogic implements ISettLogic {
         log.debug("saving Sett instance");
 
         try {
-            if (entity.getPartido() == null) {
-                throw new ZMessManager().new ForeignException("partido");
-            }
-
-            if (entity.getEstado() == null) {
-                throw new ZMessManager().new EmptyFieldException("estado");
-            }
-
-            if ((entity.getEstado() != null) &&
-                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
-                throw new ZMessManager().new NotValidFormatException("estado");
-            }
-
-            if (entity.getGamejugador1() == null) {
-                throw new ZMessManager().new EmptyFieldException("gamejugador1");
-            }
-
-            if (entity.getGamejugador2() == null) {
-                throw new ZMessManager().new EmptyFieldException("gamejugador2");
-            }
-
-            if (entity.getSetId() == null) {
-                throw new ZMessManager().new EmptyFieldException("setId");
-            }
-
-            if (entity.getTiempo() == null) {
-                throw new ZMessManager().new EmptyFieldException("tiempo");
-            }
-
-            if (entity.getPartido().getPartId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "partId_Partido");
-            }
-
-            if (getSett(entity.getSetId()) != null) {
-                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
-            }
+//            if (entity.getPartido() == null) {
+//                throw new ZMessManager().new ForeignException("partido");
+//            }
+//
+//            if (entity.getEstado() == null) {
+//                throw new ZMessManager().new EmptyFieldException("estado");
+//            }
+//
+//            if ((entity.getEstado() != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("estado");
+//            }
+//
+//            if (entity.getGamejugador1() == null) {
+//                throw new ZMessManager().new EmptyFieldException("gamejugador1");
+//            }
+//
+//            if (entity.getGamejugador2() == null) {
+//                throw new ZMessManager().new EmptyFieldException("gamejugador2");
+//            }
+//
+//            if (entity.getSetId() == null) {
+//                throw new ZMessManager().new EmptyFieldException("setId");
+//            }
+//
+//            if (entity.getTiempo() == null) {
+//                throw new ZMessManager().new EmptyFieldException("tiempo");
+//            }
+//
+//            if (entity.getPartido().getPartId() == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "partId_Partido");
+//            }
+//
+//            if (getSett(entity.getSetId()) != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
 
             settDAO.save(entity);
 
@@ -152,43 +152,43 @@ public class SettLogic implements ISettLogic {
         log.debug("updating Sett instance");
 
         try {
-            if (entity == null) {
-                throw new ZMessManager().new NullEntityExcepcion("Sett");
-            }
-
-            if (entity.getPartido() == null) {
-                throw new ZMessManager().new ForeignException("partido");
-            }
-
-            if (entity.getEstado() == null) {
-                throw new ZMessManager().new EmptyFieldException("estado");
-            }
-
-            if ((entity.getEstado() != null) &&
-                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
-                throw new ZMessManager().new NotValidFormatException("estado");
-            }
-
-            if (entity.getGamejugador1() == null) {
-                throw new ZMessManager().new EmptyFieldException("gamejugador1");
-            }
-
-            if (entity.getGamejugador2() == null) {
-                throw new ZMessManager().new EmptyFieldException("gamejugador2");
-            }
-
-            if (entity.getSetId() == null) {
-                throw new ZMessManager().new EmptyFieldException("setId");
-            }
-
-            if (entity.getTiempo() == null) {
-                throw new ZMessManager().new EmptyFieldException("tiempo");
-            }
-
-            if (entity.getPartido().getPartId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "partId_Partido");
-            }
+//            if (entity == null) {
+//                throw new ZMessManager().new NullEntityExcepcion("Sett");
+//            }
+//
+//            if (entity.getPartido() == null) {
+//                throw new ZMessManager().new ForeignException("partido");
+//            }
+//
+//            if (entity.getEstado() == null) {
+//                throw new ZMessManager().new EmptyFieldException("estado");
+//            }
+//
+//            if ((entity.getEstado() != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(entity.getEstado(), 1) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("estado");
+//            }
+//
+//            if (entity.getGamejugador1() == null) {
+//                throw new ZMessManager().new EmptyFieldException("gamejugador1");
+//            }
+//
+//            if (entity.getGamejugador2() == null) {
+//                throw new ZMessManager().new EmptyFieldException("gamejugador2");
+//            }
+//
+//            if (entity.getSetId() == null) {
+//                throw new ZMessManager().new EmptyFieldException("setId");
+//            }
+//
+//            if (entity.getTiempo() == null) {
+//                throw new ZMessManager().new EmptyFieldException("tiempo");
+//            }
+//
+//            if (entity.getPartido().getPartId() == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "partId_Partido");
+//            }
 
             settDAO.update(entity);
 

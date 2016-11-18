@@ -89,6 +89,17 @@
 								</f:facet>
 								<h:outputText value="#{partido.tornId_Torneo}" />
 							</p:column>
+							
+							<p:column >
+								 <f:facet name="header">
+							            Sets
+							        </f:facet>
+								<p:dataList value="#{partido.setts}" var="setts" type="ordered">
+							        #{setts.gamejugador1}, #{setts.gamejugador2}
+							    </p:dataList>
+							</p:column>
+							
+							
 
 							<p:column headerText="Options">
 								<p:commandButton id="btnAdd" icon="ui-icon-plus"
@@ -97,8 +108,8 @@
 									<f:attribute name="selectedPartido" value="#{partido}" />
 								</p:commandButton>
 								<p:commandButton id="btnEdit" icon="ui-icon-pencil"
-									update=":dialogPartido"
-									actionListener="#{partidoView.action_edit}">
+									update=":dialogSet"
+									actionListener="#{partidoView.action_asignarPuntos}">
 									<f:attribute name="selectedPartido" value="#{partido}" />
 								</p:commandButton>
 								<p:commandButton id="btnDelete" title="Delete"
@@ -211,7 +222,46 @@
 					</h:form>
 				</p:dialog>
 
-
+				<p:dialog id="dialogSet" appendTo="@(body)" draggable="true"
+					closable="false" visible="#{partidoView.showDialogSet}"
+					resizable="false" modal="true" width="400">
+					<h:form id="formDialog2">
+						<p:messages id="msg1" />
+						<p:panel id="panelPartido" header="Partido">
+							<h:panelGrid columns="3" id="panelGrid1">
+								
+								<h:outputText  value="1." />
+								<p:inputText id="txtSet1"
+									binding="#{partidoView.jugadorASet1}" />
+								<p:inputText id="txtSet2" 
+									binding="#{partidoView.jugadorBSet1}" />
+									
+								<h:outputText  value="2." />
+								<p:inputText id="txtSet11"
+									binding="#{partidoView.jugadorASet2}" />
+								<p:inputText id="txtSet22"
+									binding="#{partidoView.jugadorBSet2}" />
+								
+								
+								<h:outputText  value="3." />
+								<p:inputText id="txtSet111"
+									binding="#{partidoView.jugadorASet3}" />
+								<p:inputText id="txtSet222" 
+									binding="#{partidoView.jugadorBSet3}" />
+								
+							</h:panelGrid>
+						</p:panel>
+						<p:panel id="panelBotones">
+							<div align="center">
+								<p:commandButton id="btnSave" value="Add" actionListener="#{partidoView.action_guardarSets()}"
+								update=":frm:panelDataTablePartido, :dialogSet"  />
+								<p:commandButton id="btnExit" value="Exit"
+									action="#{partidoView.action_closeDialogSet()}"
+									update=":dialogSet" />
+							</div>
+						</p:panel>
+					</h:form>
+				</p:dialog>
 
 			</f:view>
 		</ui:define>

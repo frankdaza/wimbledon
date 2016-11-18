@@ -12,13 +12,13 @@
             <column name="part_id" not-null="true" />
         </many-to-one>
         <property name="gamejugador1" type="java.lang.Integer">
-            <column name="gamejugador1" not-null="true" />
+            <column name="gamejugador1"  />
         </property>
         <property name="gamejugador2" type="java.lang.Integer">
-            <column name="gamejugador2" not-null="true" />
+            <column name="gamejugador2" />
         </property>
         <property name="tiempo" type="java.lang.Double">
-            <column name="tiempo" scale="1" not-null="true" />
+            <column name="tiempo" scale="1" />
         </property>
         <property name="estado" type="java.lang.String">
             <column name="estado" length="1" not-null="true" />

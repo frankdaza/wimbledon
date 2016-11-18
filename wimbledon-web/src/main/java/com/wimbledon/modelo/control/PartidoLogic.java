@@ -52,6 +52,9 @@ public class PartidoLogic implements IPartidoLogic {
     */
     @Autowired
     private ISettDAO settDAO;
+    
+    @Autowired
+    private ISettLogic settLogic;
 
     /**
     * Logic injected by Spring that manages Arbitro entities
@@ -306,7 +309,27 @@ public class PartidoLogic implements IPartidoLogic {
                 		? partidoTmp.getJugadorByJugaaId().getNombre() : null);                
                 partidoDTO2.setNombreJugadorB((partidoTmp.getJugadorByJugabId() != null)
                 		? partidoTmp.getJugadorByJugabId().getNombre() : null);
+                
+//                
+//                if (partidoTmp.getArbitro() != null) {
+//					
+//                	Arbitro arbitro = logicArbitro1.getArbitro(partidoTmp.getPartId());
+//                	
+//                	partidoDTO2.setNombreArbitro(arbitro.getNombre());                	
+//				}
+                
+                Object[] variables = {"partido.partId", false, partidoTmp.getPartId(), "="};
+                
+                List<Sett> setts = settLogic.findByCriteria(variables, null, null);
+                
+                if (setts != null && setts.size() >0 ) {
+					partidoDTO2.setSetts(setts);
+				}
+                
+                
                 partidoDTO.add(partidoDTO2);
+                
+                
             }
 
             return partidoDTO;

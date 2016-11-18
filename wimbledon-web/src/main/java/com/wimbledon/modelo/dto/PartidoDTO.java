@@ -3,11 +3,14 @@ package com.wimbledon.modelo.dto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.wimbledon.modelo.Sett;
+
 import java.io.Serializable;
 
 import java.sql.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -32,6 +35,10 @@ public class PartidoDTO implements Serializable {
     private Integer tornId_Torneo;
     private String nombreJugadorA;
     private String nombreJugadorB;
+    
+    private List<Sett> setts;
+    private String nombreArbitro;
+    
 
     public String getEstado() {
         return estado;
@@ -135,5 +142,21 @@ public class PartidoDTO implements Serializable {
 
 	public void setNombreJugadorB(String nombreJugadorB) {
 		this.nombreJugadorB = nombreJugadorB;
+	}
+
+	public List<Sett> getSetts() {
+		return setts;
+	}
+
+	public void setSetts(List<Sett> setts) {
+		this.setts = setts;
+	}
+
+	public String getNombreArbitro() {
+		return nombreArbitro;
+	}
+
+	public void setNombreArbitro(String nombreArbitro) {
+		this.nombreArbitro = nombreArbitro;
 	}
 }
