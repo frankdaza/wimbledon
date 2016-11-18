@@ -83,11 +83,18 @@
 										 <h:outputText value="#{partido.ditoId_Directortorneo}"/>
 										</p:column>   
 			                    									
-										<p:column filterBy="#{partido.jugaId_JugadorA}" sortBy="#{partido.jugaId_JugadorA}" >
+										<p:column filterBy="#{partido.nombreJugadorA}" sortBy="#{partido.nombreJugadorA}" >
 										 <f:facet name="header">
-										<h:outputText value="JugaId_JugadorA"/>
+										<h:outputText value="Nombre jugador A"/>
 										</f:facet>
-										 <h:outputText value="#{partido.jugaId_JugadorA}"/>
+										 <h:outputText value="#{partido.nombreJugadorA}"/>
+										</p:column> 
+										
+										<p:column filterBy="#{partido.nombreJugadorB}" sortBy="#{partido.nombreJugadorB}" >
+										 <f:facet name="header">
+										<h:outputText value="Nombre jugador B"/>
+										</f:facet>
+										 <h:outputText value="#{partido.nombreJugadorB}"/>
 										</p:column>   
 										
 										<p:column filterBy="#{partido.jugaId_JugadorB}" sortBy="#{partido.jugaId_JugadorB}" >

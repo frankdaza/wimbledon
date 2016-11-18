@@ -298,6 +298,14 @@ public class PartidoLogic implements IPartidoLogic {
                     ? partidoTmp.getTipopartido().getTipaId() : null);
                 partidoDTO2.setTornId_Torneo((partidoTmp.getTorneo() != null)
                     ? partidoTmp.getTorneo().getTornId() : null);
+                partidoDTO2.setJugaId_JugadorA((partidoTmp.getJugadorByJugaaId() != null)
+                		? partidoTmp.getJugadorByJugaaId().getJugaId() : null);
+                partidoDTO2.setJugaId_JugadorB((partidoTmp.getJugadorByJugabId() != null)
+                		? partidoTmp.getJugadorByJugabId().getJugaId() : null);
+                partidoDTO2.setNombreJugadorA((partidoTmp.getJugadorByJugaaId() != null)
+                		? partidoTmp.getJugadorByJugaaId().getNombre() : null);                
+                partidoDTO2.setNombreJugadorB((partidoTmp.getJugadorByJugabId() != null)
+                		? partidoTmp.getJugadorByJugabId().getNombre() : null);
                 partidoDTO.add(partidoDTO2);
             }
 

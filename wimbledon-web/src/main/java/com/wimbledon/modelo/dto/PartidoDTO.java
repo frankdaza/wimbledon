@@ -30,6 +30,8 @@ public class PartidoDTO implements Serializable {
     private Integer jugaId_JugadorB;
     private Integer tipaId_Tipopartido;
     private Integer tornId_Torneo;
+    private String nombreJugadorA;
+    private String nombreJugadorB;
 
     public String getEstado() {
         return estado;
@@ -117,5 +119,21 @@ public class PartidoDTO implements Serializable {
 
 	public void setJugaId_JugadorB(Integer jugaId_JugadorB) {
 		this.jugaId_JugadorB = jugaId_JugadorB;
+	}
+
+	public String getNombreJugadorA() {
+		return nombreJugadorA;
+	}
+
+	public void setNombreJugadorA(String nombreJugadorA) {
+		this.nombreJugadorA = nombreJugadorA;
+	}
+
+	public String getNombreJugadorB() {
+		return nombreJugadorB;
+	}
+
+	public void setNombreJugadorB(String nombreJugadorB) {
+		this.nombreJugadorB = nombreJugadorB;
 	}
 }
