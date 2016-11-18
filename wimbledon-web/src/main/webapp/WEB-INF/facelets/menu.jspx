@@ -25,7 +25,8 @@
 							                    <p:menuitem value="Partidos" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/partidoListDataTable.xhtml" />
 							                    <p:menuitem value="Canchas" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/canchaListDataTable.xhtml" />
 							                    <p:menuitem value="Directores torneo" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/directortorneoListDataTable.xhtml" />
-							                    <p:menuitem value="Jueces de silla" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/arbitroListDataTable.xhtml" />  
+							                    <p:menuitem value="Jueces de silla" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/arbitroListDataTable.xhtml" />
+							                    <p:menuitem value="Torneos" url="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/XHTML/torneoListDataTable.xhtml" />  
 							               	 </p:submenu>
 											 								            	
 										</p:column>
