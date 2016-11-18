@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 17, 2016 8:50:16 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.wimbledon.modelo.Sett" table="sett" schema="public" optimistic-lock="version">
+        <id name="setId" type="java.lang.Integer">
+            <column name="set_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="partido" class="com.wimbledon.modelo.Partido" fetch="select">
+            <column name="part_id" not-null="true" />
+        </many-to-one>
+        <property name="gamejugador1" type="java.lang.Integer">
+            <column name="gamejugador1" not-null="true" />
+        </property>
+        <property name="gamejugador2" type="java.lang.Integer">
+            <column name="gamejugador2" not-null="true" />
+        </property>
+        <property name="tiempo" type="java.lang.Double">
+            <column name="tiempo" scale="1" not-null="true" />
+        </property>
+        <property name="estado" type="java.lang.String">
+            <column name="estado" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
