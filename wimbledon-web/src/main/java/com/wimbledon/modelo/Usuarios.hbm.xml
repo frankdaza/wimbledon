@@ -6,7 +6,7 @@
     <class name="com.wimbledon.modelo.Usuarios" table="usuarios" schema="public" optimistic-lock="version">
         <id name="usuaId" type="java.lang.Integer">
             <column name="usua_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="arbitro" class="com.wimbledon.modelo.Arbitro" fetch="select">
             <column name="arbi_id" not-null="true" />

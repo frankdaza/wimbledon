@@ -27,8 +27,8 @@ public class PartidoDTO implements Serializable {
     private Integer arbiId_Arbitro;
     private Integer cancId_Cancha;
     private Integer ditoId_Directortorneo;
-    private Integer jugaId_Jugador;
-    private Integer jugaId_Jugador;
+    private Integer jugaId_JugadorA;
+    private Integer jugaId_JugadorB;
     private Integer tipaId_Tipopartido;
     private Integer tornId_Torneo;
 
@@ -94,23 +94,7 @@ public class PartidoDTO implements Serializable {
 
     public void setDitoId_Directortorneo(Integer ditoId_Directortorneo) {
         this.ditoId_Directortorneo = ditoId_Directortorneo;
-    }
-
-    public Integer getJugaId_Jugador() {
-        return jugaId_Jugador;
-    }
-
-    public void setJugaId_Jugador(Integer jugaId_Jugador) {
-        this.jugaId_Jugador = jugaId_Jugador;
-    }
-
-    public Integer getJugaId_Jugador() {
-        return jugaId_Jugador;
-    }
-
-    public void setJugaId_Jugador(Integer jugaId_Jugador) {
-        this.jugaId_Jugador = jugaId_Jugador;
-    }
+    }   
 
     public Integer getTipaId_Tipopartido() {
         return tipaId_Tipopartido;
@@ -127,4 +111,20 @@ public class PartidoDTO implements Serializable {
     public void setTornId_Torneo(Integer tornId_Torneo) {
         this.tornId_Torneo = tornId_Torneo;
     }
+
+	public Integer getJugaId_JugadorA() {
+		return jugaId_JugadorA;
+	}
+
+	public void setJugaId_JugadorA(Integer jugaId_JugadorA) {
+		this.jugaId_JugadorA = jugaId_JugadorA;
+	}
+
+	public Integer getJugaId_JugadorB() {
+		return jugaId_JugadorB;
+	}
+
+	public void setJugaId_JugadorB(Integer jugaId_JugadorB) {
+		this.jugaId_JugadorB = jugaId_JugadorB;
+	}
 }

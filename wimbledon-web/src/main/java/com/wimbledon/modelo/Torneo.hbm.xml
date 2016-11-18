@@ -6,7 +6,7 @@
     <class name="com.wimbledon.modelo.Torneo" table="torneo" schema="public" optimistic-lock="version">
         <id name="tornId" type="java.lang.Integer">
             <column name="torn_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="nombre" type="java.lang.String">
             <column name="nombre" not-null="true" />

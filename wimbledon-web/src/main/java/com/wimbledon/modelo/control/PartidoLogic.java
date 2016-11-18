@@ -170,11 +170,7 @@ public class PartidoLogic implements IPartidoLogic {
 
             if (entity.getHora() == null) {
                 throw new ZMessManager().new EmptyFieldException("hora");
-            }
-
-            if (entity.getPartId() == null) {
-                throw new ZMessManager().new EmptyFieldException("partId");
-            }
+            }          
 
             if (entity.getArbitro().getArbiId() == null) {
                 throw new ZMessManager().new EmptyFieldException(
@@ -190,30 +186,7 @@ public class PartidoLogic implements IPartidoLogic {
                 throw new ZMessManager().new EmptyFieldException(
                     "ditoId_Directortorneo");
             }
-
-            if (entity.getJugador().getJugaId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "jugaId_Jugador");
-            }
-
-            if (entity.getJugador().getJugaId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "jugaId_Jugador");
-            }
-
-            if (entity.getTipopartido().getTipaId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "tipaId_Tipopartido");
-            }
-
-            if (entity.getTorneo().getTornId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "tornId_Torneo");
-            }
-
-            if (getPartido(entity.getPartId()) != null) {
-                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
-            }
+         
 
             partidoDAO.save(entity);
 
@@ -310,11 +283,7 @@ public class PartidoLogic implements IPartidoLogic {
 
             if (entity.getHora() == null) {
                 throw new ZMessManager().new EmptyFieldException("hora");
-            }
-
-            if (entity.getPartId() == null) {
-                throw new ZMessManager().new EmptyFieldException("partId");
-            }
+            }            
 
             if (entity.getArbitro().getArbiId() == null) {
                 throw new ZMessManager().new EmptyFieldException(
@@ -330,27 +299,7 @@ public class PartidoLogic implements IPartidoLogic {
                 throw new ZMessManager().new EmptyFieldException(
                     "ditoId_Directortorneo");
             }
-
-            if (entity.getJugador().getJugaId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "jugaId_Jugador");
-            }
-
-            if (entity.getJugador().getJugaId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "jugaId_Jugador");
-            }
-
-            if (entity.getTipopartido().getTipaId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "tipaId_Tipopartido");
-            }
-
-            if (entity.getTorneo().getTornId() == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "tornId_Torneo");
-            }
-
+          
             partidoDAO.update(entity);
 
             log.debug("update Partido successful");
@@ -386,10 +335,7 @@ public class PartidoLogic implements IPartidoLogic {
                     ? partidoTmp.getCancha().getCancId() : null);
                 partidoDTO2.setDitoId_Directortorneo((partidoTmp.getDirectortorneo()
                                                                 .getDitoId() != null)
-                    ? partidoTmp.getDirectortorneo().getDitoId() : null);
-                partidoDTO2.setJugaId_Jugador((partidoTmp.getJugador()
-                                                         .getJugaId() != null)
-                    ? partidoTmp.getJugador().getJugaId() : null);
+                    ? partidoTmp.getDirectortorneo().getDitoId() : null);                
                 partidoDTO2.setTipaId_Tipopartido((partidoTmp.getTipopartido()
                                                              .getTipaId() != null)
                     ? partidoTmp.getTipopartido().getTipaId() : null);

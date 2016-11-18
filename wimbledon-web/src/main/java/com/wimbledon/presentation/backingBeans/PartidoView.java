@@ -117,9 +117,7 @@ public class PartidoView implements Serializable {
 
             if (txtJugaId_Jugador == null) {
                 txtJugaId_Jugador = new InputText();
-            }
-
-            txtJugaId_Jugador.setValue(partidoDTO.getJugaId_Jugador());
+            }            
 
             if (txtTipaId_Tipopartido == null) {
                 txtTipaId_Tipopartido = new InputText();
@@ -276,8 +274,7 @@ public class PartidoView implements Serializable {
             txtCancId_Cancha.setDisabled(false);
             txtDitoId_Directortorneo.setValue(entity.getDirectortorneo()
                                                     .getDitoId());
-            txtDitoId_Directortorneo.setDisabled(false);
-            txtJugaId_Jugador.setValue(entity.getJugador().getJugaId());
+            txtDitoId_Directortorneo.setDisabled(false);            
             txtJugaId_Jugador.setDisabled(false);
             txtTipaId_Tipopartido.setValue(entity.getTipopartido().getTipaId());
             txtTipaId_Tipopartido.setDisabled(false);
@@ -309,8 +306,7 @@ public class PartidoView implements Serializable {
         txtCancId_Cancha.setValue(selectedPartido.getCancId_Cancha());
         txtCancId_Cancha.setDisabled(false);
         txtDitoId_Directortorneo.setValue(selectedPartido.getDitoId_Directortorneo());
-        txtDitoId_Directortorneo.setDisabled(false);
-        txtJugaId_Jugador.setValue(selectedPartido.getJugaId_Jugador());
+        txtDitoId_Directortorneo.setDisabled(false);        
         txtJugaId_Jugador.setDisabled(false);
         txtTipaId_Tipopartido.setValue(selectedPartido.getTipaId_Tipopartido());
         txtTipaId_Tipopartido.setDisabled(false);
@@ -360,15 +356,7 @@ public class PartidoView implements Serializable {
             entity.setDirectortorneo((FacesUtils.checkInteger(
                     txtDitoId_Directortorneo) != null)
                 ? businessDelegatorView.getDirectortorneo(
-                    FacesUtils.checkInteger(txtDitoId_Directortorneo)) : null);
-            entity.setJugadorByJugaaId((FacesUtils.checkInteger(
-                    txtJugaId_Jugador) != null)
-                ? businessDelegatorView.getJugadorByJugaaId(
-                    FacesUtils.checkInteger(txtJugaId_Jugador)) : null);
-            entity.setJugadorByJugabId((FacesUtils.checkInteger(
-                    txtJugaId_Jugador) != null)
-                ? businessDelegatorView.getJugadorByJugabId(
-                    FacesUtils.checkInteger(txtJugaId_Jugador)) : null);
+                    FacesUtils.checkInteger(txtDitoId_Directortorneo)) : null);                        
             entity.setTipopartido((FacesUtils.checkInteger(
                     txtTipaId_Tipopartido) != null)
                 ? businessDelegatorView.getTipopartido(FacesUtils.checkInteger(
@@ -408,14 +396,7 @@ public class PartidoView implements Serializable {
                     txtDitoId_Directortorneo) != null)
                 ? businessDelegatorView.getDirectortorneo(
                     FacesUtils.checkInteger(txtDitoId_Directortorneo)) : null);
-            entity.setJugadorByJugaaId((FacesUtils.checkInteger(
-                    txtJugaId_Jugador) != null)
-                ? businessDelegatorView.getJugadorByJugaaId(
-                    FacesUtils.checkInteger(txtJugaId_Jugador)) : null);
-            entity.setJugadorByJugabId((FacesUtils.checkInteger(
-                    txtJugaId_Jugador) != null)
-                ? businessDelegatorView.getJugadorByJugabId(
-                    FacesUtils.checkInteger(txtJugaId_Jugador)) : null);
+                        
             entity.setTipopartido((FacesUtils.checkInteger(
                     txtTipaId_Tipopartido) != null)
                 ? businessDelegatorView.getTipopartido(FacesUtils.checkInteger(

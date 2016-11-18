@@ -52,14 +52,7 @@ public class JugadorLogic implements IJugadorLogic {
     */
     @Autowired
     private IPartidoDAO partidoDAO;
-
-    /**
-    * DAO injected by Spring that manages Partido entities
-    *
-    */
-    @Autowired
-    private IPartidoDAO partidoDAO;
-
+    
     @Transactional(readOnly = true)
     public List<Jugador> getJugador() throws Exception {
         log.debug("finding all Jugador instances");
