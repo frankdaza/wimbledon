@@ -51,6 +51,7 @@ public class SorteoTorneoView implements Serializable {
     			
     		}
     		
+    		businessDelegatorView.realizar_sorteo_torneo();
     		
     		FacesUtils.addInfoMessage("El sorteo del partido ha sido realizado exitosamente");
 		} catch (Exception e) {

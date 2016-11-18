@@ -575,4 +575,9 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
     public List<UsuariosDTO> getDataUsuarios() throws Exception {
         return usuariosLogic.getDataUsuarios();
     }
+    
+    @Override
+    public void realizar_sorteo_torneo() throws Exception {
+    	torneoLogic.realizar_sorteo_torneo();
+    }
 }

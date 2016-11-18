@@ -19,7 +19,6 @@ import java.util.Date;
 public class PartidoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(PartidoDTO.class);
-    private Integer equiaId;
     private String estado;
     private Date hora;
     private Integer partId;
@@ -31,14 +30,6 @@ public class PartidoDTO implements Serializable {
     private Integer jugaId_JugadorB;
     private Integer tipaId_Tipopartido;
     private Integer tornId_Torneo;
-
-    public Integer getEquiaId() {
-        return equiaId;
-    }
-
-    public void setEquiaId(Integer equiaId) {
-        this.equiaId = equiaId;
-    }
 
     public String getEstado() {
         return estado;

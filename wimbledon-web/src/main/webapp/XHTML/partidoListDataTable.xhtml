@@ -34,19 +34,12 @@
 							<p:growl id="men"/>				
 							<p:dataTable value="#{partidoView.data}" var="partido"
 								paginator="true" rows="5">
-																										<p:column filterBy="#{partido.partId}" sortBy="#{partido.partId}" >
+										<p:column filterBy="#{partido.partId}" sortBy="#{partido.partId}" >
 										 <f:facet name="header">
 										<h:outputText value="partId"/>
 										</f:facet>
 										 <h:outputText value="#{partido.partId}"/>
-										 </p:column>
-			                    																									
-										<p:column filterBy="#{partido.equiaId}" sortBy="#{partido.equiaId}" >
-										 <f:facet name="header">
-										<h:outputText value="EquiaId"/>
-										</f:facet>
-										 <h:outputText value="#{partido.equiaId}"/>
-										</p:column>   
+										 </p:column>			                    																																		 
 			                    									
 										<p:column filterBy="#{partido.estado}" sortBy="#{partido.estado}" >
 										 <f:facet name="header">
@@ -90,11 +83,18 @@
 										 <h:outputText value="#{partido.ditoId_Directortorneo}"/>
 										</p:column>   
 			                    									
-										<p:column filterBy="#{partido.jugaId_Jugador}" sortBy="#{partido.jugaId_Jugador}" >
+										<p:column filterBy="#{partido.jugaId_JugadorA}" sortBy="#{partido.jugaId_JugadorA}" >
 										 <f:facet name="header">
-										<h:outputText value="JugaId_Jugador"/>
+										<h:outputText value="JugaId_JugadorA"/>
 										</f:facet>
-										 <h:outputText value="#{partido.jugaId_Jugador}"/>
+										 <h:outputText value="#{partido.jugaId_JugadorA}"/>
+										</p:column>   
+										
+										<p:column filterBy="#{partido.jugaId_JugadorB}" sortBy="#{partido.jugaId_JugadorB}" >
+										 <f:facet name="header">
+										<h:outputText value="JugaId_JugadorB"/>
+										</f:facet>
+										 <h:outputText value="#{partido.jugaId_JugadorB}"/>
 										</p:column>   
 			                    									
 										<p:column filterBy="#{partido.tipaId_Tipopartido}" sortBy="#{partido.tipaId_Tipopartido}" >
@@ -144,9 +144,7 @@
 									 <p:inputText id="txtPartId" binding="#{partidoView.txtPartId}">
 									 <p:ajax update=":dialogPartido" listener="#{partidoView.listener_txtId}"/>
 									 </p:inputText>	
-																											
-																		<h:outputText id="msgEquiaId" value=" EquiaId"/>
-									<p:inputText id="txtEquiaId" disabled="true" binding="#{partidoView.txtEquiaId}"/>
+																																							
 																		<h:outputText id="msgEstado" value=" Estado"/>
 									<p:inputText id="txtEstado" disabled="true" binding="#{partidoView.txtEstado}"/>
 																		<h:outputText id="msgTiempototal" value=" Tiempototal"/>

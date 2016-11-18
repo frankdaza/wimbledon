@@ -5,3 +5,5 @@ target/
 *class
 .metadata
 Servers/
+.recommenders
+dataSourceContext.xml

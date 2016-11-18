@@ -24,6 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -452,38 +454,44 @@ public class TorneoLogic implements ITorneoLogic {
      * Métodos propios
      */
     
+    /**
+     * Realiza un sorteo de torneo, organiza los partidos de los jugadores.
+     * @throws Exception
+     * @author Frank Daza.
+     */
+    @Override
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void realizar_sorteo_torneo() throws Exception {
     	log.debug("Ingresó a realizar_sorteo_torneo");
     	try {
-			Long numeroJugadores = jugadorLogic.findTotalNumberJugador();
+			List<Jugador> listJugador = jugadorLogic.getJugador();
+//			Collections.shuffle(listJugador);
+			
+			List<List<Jugador>> listTuplas = new ArrayList<List<Jugador>>();
 			
 			// El número de partidos es igual a la mitad del número de jugadores
+			for (int i = 0; i < listJugador.size(); i = i + 2) {
+				List<Jugador> jugadors = new ArrayList<Jugador>();
+				jugadors.add(listJugador.get(i));
+				jugadors.add(listJugador.get(i + 1));
+				listTuplas.add(jugadors);
+			}
 			
+			// Guardo los partidos
+			for (List<Jugador> list : listTuplas) {
+				Partido partido = new Partido();
+				partido.setEstado("A");
+				partido.setJugadorByJugaaId(list.get(0));
+				partido.setJugadorByJugabId(list.get(1));
+				partido.setHora(new Date());
+				partidoLogic.savePartido(partido);
+			}
 			
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			throw e;
 		}
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
