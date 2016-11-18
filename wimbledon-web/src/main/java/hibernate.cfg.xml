@@ -6,13 +6,8 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-<<<<<<< HEAD
         <property name="hibernate.connection.password">123456</property>
         <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5433/wimbledon2</property>
-=======
-        <property name="hibernate.connection.password">sega0826</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/wimbledon</property>
->>>>>>> 72dad718535a5e7c7aa4f4f53409080e0efb23ef
         <property name="hibernate.connection.username">postgres</property>
         <mapping resource="com/wimbledon/modelo/Consultas.hbm.xml" />
         <mapping resource="com/wimbledon/modelo/Partido.hbm.xml" />
