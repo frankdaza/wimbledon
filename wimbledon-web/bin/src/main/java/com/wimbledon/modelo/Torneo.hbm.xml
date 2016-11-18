@@ -3,31 +3,25 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Nov 17, 2016 8:50:16 PM by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
-    <class name="com.wimbledon.modelo.Arbitro" table="arbitro" schema="public" optimistic-lock="version">
-        <id name="arbiId" type="java.lang.Integer">
-            <column name="arbi_id" />
+    <class name="com.wimbledon.modelo.Torneo" table="torneo" schema="public" optimistic-lock="version">
+        <id name="tornId" type="java.lang.Integer">
+            <column name="torn_id" />
             <generator class="identity" />
         </id>
         <property name="nombre" type="java.lang.String">
-            <column name="nombre" length="100" not-null="true" />
+            <column name="nombre" not-null="true" />
         </property>
         <property name="estado" type="java.lang.String">
             <column name="estado" length="1" not-null="true" />
         </property>
-        <property name="numeroIdentificacion" type="java.lang.String">
-            <column name="numero_identificacion" length="10" not-null="true" unique="true" />
+        <property name="premio" type="java.lang.String">
+            <column name="premio" not-null="true" />
         </property>
         <set name="partidos" table="partido" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="arbi_id" not-null="true" />
+                <column name="torn_id" not-null="true" />
             </key>
             <one-to-many class="com.wimbledon.modelo.Partido" />
-        </set>
-        <set name="usuarioses" table="usuarios" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="arbi_id" not-null="true" />
-            </key>
-            <one-to-many class="com.wimbledon.modelo.Usuarios" />
         </set>
     </class>
 </hibernate-mapping>

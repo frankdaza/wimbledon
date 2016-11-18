@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 17, 2016 8:50:16 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.wimbledon.modelo.Partido" table="partido" schema="public" optimistic-lock="version">
+        <id name="partId" type="java.lang.Integer">
+            <column name="part_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="arbitro" class="com.wimbledon.modelo.Arbitro" fetch="select">
+            <column name="arbi_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cancha" class="com.wimbledon.modelo.Cancha" fetch="select">
+            <column name="canc_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="directortorneo" class="com.wimbledon.modelo.Directortorneo" fetch="select">
+            <column name="dito_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jugadorByJugaaId" class="com.wimbledon.modelo.Jugador" fetch="select">
+            <column name="jugaa_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jugadorByJugabId" class="com.wimbledon.modelo.Jugador" fetch="select">
+            <column name="jugab_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipopartido" class="com.wimbledon.modelo.Tipopartido" fetch="select">
+            <column name="tipa_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="torneo" class="com.wimbledon.modelo.Torneo" fetch="select">
+            <column name="torn_id" not-null="true" />
+        </many-to-one>
+        <property name="hora" type="java.util.Date">
+            <column name="hora" length="29" not-null="true" />
+        </property>
+        <property name="tiempototal" type="java.lang.Integer">
+            <column name="tiempototal" />
+        </property>
+        <property name="estado" type="java.lang.String">
+            <column name="estado" length="1" not-null="true" />
+        </property>
+        <property name="equiaId" type="java.lang.Integer">
+            <column name="equia_id" not-null="true" />
+        </property>
+        <set name="setts" table="sett" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="part_id" not-null="true" />
+            </key>
+            <one-to-many class="com.wimbledon.modelo.Sett" />
+        </set>
+    </class>
+</hibernate-mapping>

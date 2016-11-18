@@ -31,22 +31,25 @@
 			<h:form id="formDialog">
 				<p:messages id="msg" />
 				<p:growl id="men"/>
-					<p:panel id="panelArbitro" header="Arbitro">							
+					<p:panel id="panelTipopartido" header="Tipopartido">							
 						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgTipaId" value="TipaId"/>
+						 	<p:inputText id="txtTipaId" binding="#{tipopartidoView.txtTipaId}">
+						 		<p:ajax update="panelTipopartido,msg,panelBotones" listener="#{tipopartidoView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
 													<h:outputText id="msgEstado" value=" Estado"/>
-							<p:inputText id="txtEstado" disabled="true" binding="#{arbitroView.txtEstado}"/>
+							<p:inputText id="txtEstado" disabled="true" binding="#{tipopartidoView.txtEstado}"/>
 													<h:outputText id="msgNombre" value=" Nombre"/>
-							<p:inputText id="txtNombre" disabled="true" binding="#{arbitroView.txtNombre}"/>
-													<h:outputText id="msgNumeroIdentificacion" value=" NumeroIdentificacion"/>
-							<p:inputText id="txtNumeroIdentificacion" disabled="true" binding="#{arbitroView.txtNumeroIdentificacion}"/>
+							<p:inputText id="txtNombre" disabled="true" binding="#{tipopartidoView.txtNombre}"/>
 												
 										   </h:panelGrid>
 				</p:panel>
 	   			<p:panel id="panelBotones">
 					<div align="center">					
-						<p:commandButton id="btnSave" binding="#{arbitroView.btnSave}" disabled="true" value="Save" action="#{arbitroView.action_save()}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnDelete" binding="#{arbitroView.btnDelete}" disabled="true" value="Delete" action="#{arbitroView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnClear" value="Clear" action="#{arbitroView.action_clear()}" update="panelArbitro,msg,panelBotones" />
+						<p:commandButton id="btnSave" binding="#{tipopartidoView.btnSave}" disabled="true" value="Save" action="#{tipopartidoView.action_save()}" update="panelTipopartido,msg,panelBotones" />
+						<p:commandButton id="btnDelete" binding="#{tipopartidoView.btnDelete}" disabled="true" value="Delete" action="#{tipopartidoView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelTipopartido,msg,panelBotones" />
+						<p:commandButton id="btnClear" value="Clear" action="#{tipopartidoView.action_clear()}" update="panelTipopartido,msg,panelBotones" />
 					</div>
 				</p:panel>			
 			</h:form>

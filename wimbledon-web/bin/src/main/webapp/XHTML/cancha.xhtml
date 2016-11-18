@@ -31,22 +31,27 @@
 			<h:form id="formDialog">
 				<p:messages id="msg" />
 				<p:growl id="men"/>
-					<p:panel id="panelArbitro" header="Arbitro">							
+					<p:panel id="panelCancha" header="Cancha">							
 						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgCancId" value="CancId"/>
+						 	<p:inputText id="txtCancId" binding="#{canchaView.txtCancId}">
+						 		<p:ajax update="panelCancha,msg,panelBotones" listener="#{canchaView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
 													<h:outputText id="msgEstado" value=" Estado"/>
-							<p:inputText id="txtEstado" disabled="true" binding="#{arbitroView.txtEstado}"/>
-													<h:outputText id="msgNombre" value=" Nombre"/>
-							<p:inputText id="txtNombre" disabled="true" binding="#{arbitroView.txtNombre}"/>
-													<h:outputText id="msgNumeroIdentificacion" value=" NumeroIdentificacion"/>
-							<p:inputText id="txtNumeroIdentificacion" disabled="true" binding="#{arbitroView.txtNumeroIdentificacion}"/>
+							<p:inputText id="txtEstado" disabled="true" binding="#{canchaView.txtEstado}"/>
+													<h:outputText id="msgMantenimiento" value=" Mantenimiento"/>
+							<p:inputText id="txtMantenimiento" disabled="true" binding="#{canchaView.txtMantenimiento}"/>
+													<h:outputText id="msgNumero" value=" Numero"/>
+							<p:inputText id="txtNumero" disabled="true" binding="#{canchaView.txtNumero}"/>
 												
 										   </h:panelGrid>
 				</p:panel>
 	   			<p:panel id="panelBotones">
 					<div align="center">					
-						<p:commandButton id="btnSave" binding="#{arbitroView.btnSave}" disabled="true" value="Save" action="#{arbitroView.action_save()}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnDelete" binding="#{arbitroView.btnDelete}" disabled="true" value="Delete" action="#{arbitroView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnClear" value="Clear" action="#{arbitroView.action_clear()}" update="panelArbitro,msg,panelBotones" />
+						<p:commandButton id="btnSave" binding="#{canchaView.btnSave}" disabled="true" value="Save" action="#{canchaView.action_save()}" update="panelCancha,msg,panelBotones" />
+						<p:commandButton id="btnDelete" binding="#{canchaView.btnDelete}" disabled="true" value="Delete" action="#{canchaView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelCancha,msg,panelBotones" />
+						<p:commandButton id="btnClear" value="Clear" action="#{canchaView.action_clear()}" update="panelCancha,msg,panelBotones" />
 					</div>
 				</p:panel>			
 			</h:form>

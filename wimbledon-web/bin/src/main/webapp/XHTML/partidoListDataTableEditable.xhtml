@@ -1,0 +1,241 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>
+
+	<h:body>
+	    <ui:composition template="/WEB-INF/facelets/template.xhtml">	
+		 
+		 	<ui:define name="body">	
+				<f:view>
+					<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>               
+					<p:dialog modal="true" widgetVar="statusDialog" header="Loading"  draggable="false" closable="false">  
+   						<p:graphicImage value="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/images/ajaxloadingbar.gif" />   
+					</p:dialog>
+					
+					
+					<!-- Expired session -->
+					<p:idleMonitor onactive="PF('sessionTimeOutDialog').show();" timeout="#{session.maxInactiveInterval * 1000}" />
+					<p:dialog modal="true" widgetVar="sessionTimeOutDialog" header="Expired session"  draggable="false" closable="false">  
+	   					<h:outputText value="The session is finished" />
+	                 	<input id="confirmBackToLogin" 
+	                 		type="button" 
+	                 		value="Sign in"
+	                    	onclick="window.location='#{facesContext.externalContext.requestContextPath}/index.jsp';" />   
+					</p:dialog>
+		 
+		 <h:form id="form">
+			
+			 
+			<p:panel id="msgProjectClientesTitle" header="PartidoData">
+					<p:messages id="msg" />
+				<p:dataTable id ="tabla" value="#{partidoView.data}" var="partido"
+					paginator="true" rows="5"  editable="true" >
+					 
+					 <p:ajax event ="rowEdit" update=":form:msg,:form:tabla" listener="#{partidoView.rowEventListener}" />
+					
+															<p:column filterBy="#{partido.partId}" sortBy="#{partido.partId}" headerText="partId">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{partido.partId}"/>
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{partido.partId}"/>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+                    										
+											
+						<p:column filterBy="#{partido.equiaId}" sortBy="#{partido.equiaId}" 
+							headerText="equiaId">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.equiaId}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.equiaId}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.estado}" sortBy="#{partido.estado}" 
+							headerText="estado">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.estado}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.estado}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.tiempototal}" sortBy="#{partido.tiempototal}" 
+							headerText="tiempototal">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.tiempototal}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.tiempototal}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.arbiId_Arbitro}" sortBy="#{partido.arbiId_Arbitro}" 
+							headerText="arbiId_Arbitro">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.arbiId_Arbitro}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.arbiId_Arbitro}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.cancId_Cancha}" sortBy="#{partido.cancId_Cancha}" 
+							headerText="cancId_Cancha">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.cancId_Cancha}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.cancId_Cancha}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.ditoId_Directortorneo}" sortBy="#{partido.ditoId_Directortorneo}" 
+							headerText="ditoId_Directortorneo">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.ditoId_Directortorneo}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.ditoId_Directortorneo}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.jugaId_Jugador}" sortBy="#{partido.jugaId_Jugador}" 
+							headerText="jugaId_Jugador">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.jugaId_Jugador}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.jugaId_Jugador}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.tipaId_Tipopartido}" sortBy="#{partido.tipaId_Tipopartido}" 
+							headerText="tipaId_Tipopartido">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.tipaId_Tipopartido}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.tipaId_Tipopartido}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{partido.tornId_Torneo}" sortBy="#{partido.tornId_Torneo}" 
+							headerText="tornId_Torneo">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.tornId_Torneo}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{partido.tornId_Torneo}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+										
+										   						 
+						 <p:column filterBy="#{partido.hora}" sortBy="#{partido.hora}" 
+							headerText="hora">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{partido.hora}">
+									  <f:convertDateTime  pattern="dd/MM/yyyy"/>
+									</h:outputText>		
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:calendar value="#{partido.hora}" showOn="button" pattern="dd/MM/yyyy" navigator="true" >
+									  <f:convertDateTime  pattern="dd/MM/yyyy" timeZone="#{partidoView.timeZone}" />	
+								    </p:calendar>		
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+					   											
+					<p:column headerText="Options" >
+						<p:rowEditor id="row"/>
+						<p:tooltip for="row" value="Edit" showEffect="fade" hideEffect="fade" />
+						<p:tooltip for="btnDelete" value="Delete" showEffect="fade" hideEffect="fade" />
+						<p:commandButton id="btnDelete" actionListener="#{partidoView.actionDeleteDataTableEditable}" title="Delete" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" icon="ui-icon-trash" update=":form:msg,:form:tabla" >
+							<f:attribute name="selectedPartido" value="#{partido}" />  
+						</p:commandButton>
+						
+					</p:column>	
+				
+				</p:dataTable>	
+					
+				
+			</p:panel>
+				
+	   </h:form>
+		 </f:view>
+			</ui:define>		
+		</ui:composition>	
+	
+	</h:body>	
+	
+</html>	

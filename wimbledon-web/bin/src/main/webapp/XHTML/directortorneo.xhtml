@@ -31,22 +31,29 @@
 			<h:form id="formDialog">
 				<p:messages id="msg" />
 				<p:growl id="men"/>
-					<p:panel id="panelArbitro" header="Arbitro">							
+					<p:panel id="panelDirectortorneo" header="Directortorneo">							
 						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgDitoId" value="DitoId"/>
+						 	<p:inputText id="txtDitoId" binding="#{directortorneoView.txtDitoId}">
+						 		<p:ajax update="panelDirectortorneo,msg,panelBotones" listener="#{directortorneoView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
+													<h:outputText id="msgDocuId" value=" DocuId"/>
+							<p:inputText id="txtDocuId" disabled="true" binding="#{directortorneoView.txtDocuId}"/>
 													<h:outputText id="msgEstado" value=" Estado"/>
-							<p:inputText id="txtEstado" disabled="true" binding="#{arbitroView.txtEstado}"/>
+							<p:inputText id="txtEstado" disabled="true" binding="#{directortorneoView.txtEstado}"/>
 													<h:outputText id="msgNombre" value=" Nombre"/>
-							<p:inputText id="txtNombre" disabled="true" binding="#{arbitroView.txtNombre}"/>
+							<p:inputText id="txtNombre" disabled="true" binding="#{directortorneoView.txtNombre}"/>
 													<h:outputText id="msgNumeroIdentificacion" value=" NumeroIdentificacion"/>
-							<p:inputText id="txtNumeroIdentificacion" disabled="true" binding="#{arbitroView.txtNumeroIdentificacion}"/>
+							<p:inputText id="txtNumeroIdentificacion" disabled="true" binding="#{directortorneoView.txtNumeroIdentificacion}"/>
 												
 										   </h:panelGrid>
 				</p:panel>
 	   			<p:panel id="panelBotones">
 					<div align="center">					
-						<p:commandButton id="btnSave" binding="#{arbitroView.btnSave}" disabled="true" value="Save" action="#{arbitroView.action_save()}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnDelete" binding="#{arbitroView.btnDelete}" disabled="true" value="Delete" action="#{arbitroView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnClear" value="Clear" action="#{arbitroView.action_clear()}" update="panelArbitro,msg,panelBotones" />
+						<p:commandButton id="btnSave" binding="#{directortorneoView.btnSave}" disabled="true" value="Save" action="#{directortorneoView.action_save()}" update="panelDirectortorneo,msg,panelBotones" />
+						<p:commandButton id="btnDelete" binding="#{directortorneoView.btnDelete}" disabled="true" value="Delete" action="#{directortorneoView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelDirectortorneo,msg,panelBotones" />
+						<p:commandButton id="btnClear" value="Clear" action="#{directortorneoView.action_clear()}" update="panelDirectortorneo,msg,panelBotones" />
 					</div>
 				</p:panel>			
 			</h:form>

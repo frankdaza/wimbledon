@@ -31,22 +31,29 @@
 			<h:form id="formDialog">
 				<p:messages id="msg" />
 				<p:growl id="men"/>
-					<p:panel id="panelArbitro" header="Arbitro">							
+					<p:panel id="panelUsuarios" header="Usuarios">							
 						<h:panelGrid columns="2" id="panelGrid" >
-													<h:outputText id="msgEstado" value=" Estado"/>
-							<p:inputText id="txtEstado" disabled="true" binding="#{arbitroView.txtEstado}"/>
-													<h:outputText id="msgNombre" value=" Nombre"/>
-							<p:inputText id="txtNombre" disabled="true" binding="#{arbitroView.txtNombre}"/>
-													<h:outputText id="msgNumeroIdentificacion" value=" NumeroIdentificacion"/>
-							<p:inputText id="txtNumeroIdentificacion" disabled="true" binding="#{arbitroView.txtNumeroIdentificacion}"/>
+												 	<h:outputText id="msgUsuaId" value="UsuaId"/>
+						 	<p:inputText id="txtUsuaId" binding="#{usuariosView.txtUsuaId}">
+						 		<p:ajax update="panelUsuarios,msg,panelBotones" listener="#{usuariosView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
+													<h:outputText id="msgLogin" value=" Login"/>
+							<p:inputText id="txtLogin" disabled="true" binding="#{usuariosView.txtLogin}"/>
+													<h:outputText id="msgPassword" value=" Password"/>
+							<p:inputText id="txtPassword" disabled="true" binding="#{usuariosView.txtPassword}"/>
+													<h:outputText id="msgArbiId_Arbitro" value=" ArbiId_Arbitro"/>
+							<p:inputText id="txtArbiId_Arbitro" disabled="true" binding="#{usuariosView.txtArbiId_Arbitro}"/>
+													<h:outputText id="msgDitoId_Directortorneo" value=" DitoId_Directortorneo"/>
+							<p:inputText id="txtDitoId_Directortorneo" disabled="true" binding="#{usuariosView.txtDitoId_Directortorneo}"/>
 												
 										   </h:panelGrid>
 				</p:panel>
 	   			<p:panel id="panelBotones">
 					<div align="center">					
-						<p:commandButton id="btnSave" binding="#{arbitroView.btnSave}" disabled="true" value="Save" action="#{arbitroView.action_save()}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnDelete" binding="#{arbitroView.btnDelete}" disabled="true" value="Delete" action="#{arbitroView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnClear" value="Clear" action="#{arbitroView.action_clear()}" update="panelArbitro,msg,panelBotones" />
+						<p:commandButton id="btnSave" binding="#{usuariosView.btnSave}" disabled="true" value="Save" action="#{usuariosView.action_save()}" update="panelUsuarios,msg,panelBotones" />
+						<p:commandButton id="btnDelete" binding="#{usuariosView.btnDelete}" disabled="true" value="Delete" action="#{usuariosView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelUsuarios,msg,panelBotones" />
+						<p:commandButton id="btnClear" value="Clear" action="#{usuariosView.action_clear()}" update="panelUsuarios,msg,panelBotones" />
 					</div>
 				</p:panel>			
 			</h:form>

@@ -31,22 +31,31 @@
 			<h:form id="formDialog">
 				<p:messages id="msg" />
 				<p:growl id="men"/>
-					<p:panel id="panelArbitro" header="Arbitro">							
+					<p:panel id="panelSett" header="Sett">							
 						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgSetId" value="SetId"/>
+						 	<p:inputText id="txtSetId" binding="#{settView.txtSetId}">
+						 		<p:ajax update="panelSett,msg,panelBotones" listener="#{settView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
 													<h:outputText id="msgEstado" value=" Estado"/>
-							<p:inputText id="txtEstado" disabled="true" binding="#{arbitroView.txtEstado}"/>
-													<h:outputText id="msgNombre" value=" Nombre"/>
-							<p:inputText id="txtNombre" disabled="true" binding="#{arbitroView.txtNombre}"/>
-													<h:outputText id="msgNumeroIdentificacion" value=" NumeroIdentificacion"/>
-							<p:inputText id="txtNumeroIdentificacion" disabled="true" binding="#{arbitroView.txtNumeroIdentificacion}"/>
+							<p:inputText id="txtEstado" disabled="true" binding="#{settView.txtEstado}"/>
+													<h:outputText id="msgGamejugador1" value=" Gamejugador1"/>
+							<p:inputText id="txtGamejugador1" disabled="true" binding="#{settView.txtGamejugador1}"/>
+													<h:outputText id="msgGamejugador2" value=" Gamejugador2"/>
+							<p:inputText id="txtGamejugador2" disabled="true" binding="#{settView.txtGamejugador2}"/>
+													<h:outputText id="msgTiempo" value=" Tiempo"/>
+							<p:inputText id="txtTiempo" disabled="true" binding="#{settView.txtTiempo}"/>
+													<h:outputText id="msgPartId_Partido" value=" PartId_Partido"/>
+							<p:inputText id="txtPartId_Partido" disabled="true" binding="#{settView.txtPartId_Partido}"/>
 												
 										   </h:panelGrid>
 				</p:panel>
 	   			<p:panel id="panelBotones">
 					<div align="center">					
-						<p:commandButton id="btnSave" binding="#{arbitroView.btnSave}" disabled="true" value="Save" action="#{arbitroView.action_save()}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnDelete" binding="#{arbitroView.btnDelete}" disabled="true" value="Delete" action="#{arbitroView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelArbitro,msg,panelBotones" />
-						<p:commandButton id="btnClear" value="Clear" action="#{arbitroView.action_clear()}" update="panelArbitro,msg,panelBotones" />
+						<p:commandButton id="btnSave" binding="#{settView.btnSave}" disabled="true" value="Save" action="#{settView.action_save()}" update="panelSett,msg,panelBotones" />
+						<p:commandButton id="btnDelete" binding="#{settView.btnDelete}" disabled="true" value="Delete" action="#{settView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelSett,msg,panelBotones" />
+						<p:commandButton id="btnClear" value="Clear" action="#{settView.action_clear()}" update="panelSett,msg,panelBotones" />
 					</div>
 				</p:panel>			
 			</h:form>

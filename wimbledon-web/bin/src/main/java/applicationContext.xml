@@ -11,13 +11,22 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
- 
-		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/wimbledon" />
-		<property name="username" value="postgres" />
-		<property name="password" value="sega0826" />
-		
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+		<property name="dataSource" ref="dataSource" />  
 	</bean>
 
+	<bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<context:component-scan base-package="com" scoped-proxy="interfaces" />
+
+	<import resource="classpath:aopContext.xml" />
+	
+	<import resource="classpath:dataSourceContext.xml" />
+	
+	<import resource="classpath:securityContext.xml" />
 </beans>
