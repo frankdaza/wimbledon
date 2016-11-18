@@ -14,7 +14,6 @@ public class Arbitro  implements java.io.Serializable {
      private Integer arbiId;
      private String nombre;
      private String estado;
-     private Integer docuId;
      private String numeroIdentificacion;
      private Set<Partido> partidos = new HashSet<Partido>(0);
      private Set<Usuarios> usuarioses = new HashSet<Usuarios>(0);
@@ -23,18 +22,17 @@ public class Arbitro  implements java.io.Serializable {
     }
 
 	
-    public Arbitro(Integer arbiId, String nombre, String estado, Integer docuId, String numeroIdentificacion) {
+    public Arbitro(Integer arbiId, String nombre, String estado, String numeroIdentificacion) {
         this.arbiId = arbiId;
         this.nombre = nombre;
         this.estado = estado;
-        this.docuId = docuId;
+        
         this.numeroIdentificacion = numeroIdentificacion;
     }
-    public Arbitro(Integer arbiId, String nombre, String estado, Integer docuId, String numeroIdentificacion, Set<Partido> partidos, Set<Usuarios> usuarioses) {
+    public Arbitro(Integer arbiId, String nombre, String estado, String numeroIdentificacion, Set<Partido> partidos, Set<Usuarios> usuarioses) {
        this.arbiId = arbiId;
        this.nombre = nombre;
        this.estado = estado;
-       this.docuId = docuId;
        this.numeroIdentificacion = numeroIdentificacion;
        this.partidos = partidos;
        this.usuarioses = usuarioses;
@@ -60,13 +58,6 @@ public class Arbitro  implements java.io.Serializable {
     
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-    public Integer getDocuId() {
-        return this.docuId;
-    }
-    
-    public void setDocuId(Integer docuId) {
-        this.docuId = docuId;
     }
     public String getNumeroIdentificacion() {
         return this.numeroIdentificacion;

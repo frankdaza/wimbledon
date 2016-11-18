@@ -13,7 +13,7 @@
         </property>
         <property name="estado" type="java.lang.String">
             <column name="estado" length="1" not-null="true" />
-        </property> 
+        </property>        
         <property name="numeroIdentificacion" type="java.lang.String">
             <column name="numero_identificacion" length="10" not-null="true" unique="true" />
         </property>

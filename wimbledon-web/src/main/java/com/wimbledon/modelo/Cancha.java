@@ -14,20 +14,20 @@ public class Cancha  implements java.io.Serializable {
      private Integer cancId;
      private Integer numero;
      private String mantenimiento;
-     private Integer estado;
+     private String estado;
      private Set<Partido> partidos = new HashSet<Partido>(0);
 
     public Cancha() {
     }
 
 	
-    public Cancha(Integer cancId, Integer numero, String mantenimiento, Integer estado) {
+    public Cancha(Integer cancId, Integer numero, String mantenimiento, String estado) {
         this.cancId = cancId;
         this.numero = numero;
         this.mantenimiento = mantenimiento;
         this.estado = estado;
     }
-    public Cancha(Integer cancId, Integer numero, String mantenimiento, Integer estado, Set<Partido> partidos) {
+    public Cancha(Integer cancId, Integer numero, String mantenimiento, String estado, Set<Partido> partidos) {
        this.cancId = cancId;
        this.numero = numero;
        this.mantenimiento = mantenimiento;
@@ -56,11 +56,11 @@ public class Cancha  implements java.io.Serializable {
     public void setMantenimiento(String mantenimiento) {
         this.mantenimiento = mantenimiento;
     }
-    public Integer getEstado() {
+    public String getEstado() {
         return this.estado;
     }
     
-    public void setEstado(Integer estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
     public Set<Partido> getPartidos() {

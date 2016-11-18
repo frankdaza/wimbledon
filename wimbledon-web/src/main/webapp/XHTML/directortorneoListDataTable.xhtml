@@ -40,14 +40,7 @@
 										</f:facet>
 										 <h:outputText value="#{directortorneo.ditoId}"/>
 										 </p:column>
-			                    																									
-										<p:column filterBy="#{directortorneo.docuId}" sortBy="#{directortorneo.docuId}" >
-										 <f:facet name="header">
-										<h:outputText value="DocuId"/>
-										</f:facet>
-										 <h:outputText value="#{directortorneo.docuId}"/>
-										</p:column>   
-			                    									
+			                    																																								
 										<p:column filterBy="#{directortorneo.estado}" sortBy="#{directortorneo.estado}" >
 										 <f:facet name="header">
 										<h:outputText value="Estado"/>
@@ -102,9 +95,7 @@
 									 <p:inputText id="txtDitoId" binding="#{directortorneoView.txtDitoId}">
 									 <p:ajax update=":dialogDirectortorneo" listener="#{directortorneoView.listener_txtId}"/>
 									 </p:inputText>	
-																											
-																		<h:outputText id="msgDocuId" value=" DocuId"/>
-									<p:inputText id="txtDocuId" disabled="true" binding="#{directortorneoView.txtDocuId}"/>
+																																												
 																		<h:outputText id="msgEstado" value=" Estado"/>
 									<p:inputText id="txtEstado" disabled="true" binding="#{directortorneoView.txtEstado}"/>
 																		<h:outputText id="msgNombre" value=" Nombre"/>

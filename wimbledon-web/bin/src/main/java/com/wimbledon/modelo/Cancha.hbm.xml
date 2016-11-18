@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 17, 2016 8:50:16 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.wimbledon.modelo.Cancha" table="cancha" schema="public" optimistic-lock="version">
+        <id name="cancId" type="java.lang.Integer">
+            <column name="canc_id" />
+            <generator class="identity" />
+        </id>
+        <property name="numero" type="java.lang.Integer">
+            <column name="numero" not-null="true" />
+        </property>
+        <property name="mantenimiento" type="java.lang.String">
+            <column name="mantenimiento" length="1" not-null="true" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" not-null="true" />
+        </property>
+        <set name="partidos" table="partido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="canc_id" not-null="true" />
+            </key>
+            <one-to-many class="com.wimbledon.modelo.Partido" />
+        </set>
+    </class>
+</hibernate-mapping>

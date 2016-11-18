@@ -219,7 +219,7 @@ public class CanchaView implements Serializable {
             Integer cancId = FacesUtils.checkInteger(txtCancId);
 
             entity.setCancId(cancId);
-            entity.setEstado(FacesUtils.checkInteger(txtEstado));
+            entity.setEstado(FacesUtils.checkString(txtEstado));
             entity.setMantenimiento(FacesUtils.checkString(txtMantenimiento));
             entity.setNumero(FacesUtils.checkInteger(txtNumero));
             businessDelegatorView.saveCancha(entity);
@@ -240,7 +240,7 @@ public class CanchaView implements Serializable {
                 entity = businessDelegatorView.getCancha(cancId);
             }
 
-            entity.setEstado(FacesUtils.checkInteger(txtEstado));
+            entity.setEstado(FacesUtils.checkString(txtEstado));
             entity.setMantenimiento(FacesUtils.checkString(txtMantenimiento));
             entity.setNumero(FacesUtils.checkInteger(txtNumero));
             businessDelegatorView.updateCancha(entity);
@@ -319,7 +319,7 @@ public class CanchaView implements Serializable {
     public String action_modifyWitDTO(Integer cancId, Integer estado,
         String mantenimiento, Integer numero) throws Exception {
         try {
-            entity.setEstado(FacesUtils.checkInteger(estado));
+            entity.setEstado(FacesUtils.checkString(estado));
             entity.setMantenimiento(FacesUtils.checkString(mantenimiento));
             entity.setNumero(FacesUtils.checkInteger(numero));
             businessDelegatorView.updateCancha(entity);

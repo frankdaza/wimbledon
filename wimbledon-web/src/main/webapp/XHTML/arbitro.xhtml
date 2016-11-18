@@ -33,13 +33,6 @@
 				<p:growl id="men"/>
 					<p:panel id="panelArbitro" header="Arbitro">							
 						<h:panelGrid columns="2" id="panelGrid" >
-												 	<h:outputText id="msgArbiId" value="ArbiId"/>
-						 	<p:inputText id="txtArbiId" binding="#{arbitroView.txtArbiId}">
-						 		<p:ajax update="panelArbitro,msg,panelBotones" listener="#{arbitroView.listener_txtId}"/>
-						 	</p:inputText>	
-																		
-													<h:outputText id="msgDocuId" value=" DocuId"/>
-							<p:inputText id="txtDocuId" disabled="true" binding="#{arbitroView.txtDocuId}"/>
 													<h:outputText id="msgEstado" value=" Estado"/>
 							<p:inputText id="txtEstado" disabled="true" binding="#{arbitroView.txtEstado}"/>
 													<h:outputText id="msgNombre" value=" Nombre"/>

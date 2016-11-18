@@ -83,13 +83,10 @@ public class ArbitroLogic implements IArbitroLogic {
         log.debug("saving Arbitro instance");
 
         try {
-            if (entity.getArbiId() == null) {
-                throw new ZMessManager().new EmptyFieldException("arbiId");
-            }
+//            if (entity.getArbiId() == null) {
+//                throw new ZMessManager().new EmptyFieldException("arbiId");
+//            }
 
-            if (entity.getDocuId() == null) {
-                throw new ZMessManager().new EmptyFieldException("docuId");
-            }
 
             if (entity.getEstado() == null) {
                 throw new ZMessManager().new EmptyFieldException("estado");
@@ -122,9 +119,9 @@ public class ArbitroLogic implements IArbitroLogic {
                     "numeroIdentificacion");
             }
 
-            if (getArbitro(entity.getArbiId()) != null) {
-                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
-            }
+//            if (getArbitro(entity.getArbiId()) != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
 
             arbitroDAO.save(entity);
 
@@ -189,9 +186,6 @@ public class ArbitroLogic implements IArbitroLogic {
                 throw new ZMessManager().new EmptyFieldException("arbiId");
             }
 
-            if (entity.getDocuId() == null) {
-                throw new ZMessManager().new EmptyFieldException("docuId");
-            }
 
             if (entity.getEstado() == null) {
                 throw new ZMessManager().new EmptyFieldException("estado");
@@ -245,8 +239,6 @@ public class ArbitroLogic implements IArbitroLogic {
                 ArbitroDTO arbitroDTO2 = new ArbitroDTO();
 
                 arbitroDTO2.setArbiId(arbitroTmp.getArbiId());
-                arbitroDTO2.setDocuId((arbitroTmp.getDocuId() != null)
-                    ? arbitroTmp.getDocuId() : null);
                 arbitroDTO2.setEstado((arbitroTmp.getEstado() != null)
                     ? arbitroTmp.getEstado() : null);
                 arbitroDTO2.setNombre((arbitroTmp.getNombre() != null)

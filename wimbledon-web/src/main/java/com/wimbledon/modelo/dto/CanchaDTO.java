@@ -20,7 +20,7 @@ public class CanchaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(CanchaDTO.class);
     private Integer cancId;
-    private Integer estado;
+    private String estado;
     private String mantenimiento;
     private Integer numero;
 
@@ -32,11 +32,11 @@ public class CanchaDTO implements Serializable {
         this.cancId = cancId;
     }
 
-    public Integer getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Integer estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
